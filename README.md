@@ -52,5 +52,6 @@ find out.
 | `living-hinge-guide.md` · `.html` | operating guide; the markdown is the source |
 | `NOTES.md` | how to reach this generator from a later session |
 | `coupons/` | bridge-sweep test coupons and cut instructions |
+| `index.html` | redirect that serves the guide on GitHub Pages |
 
 Released under [CC0 1.0](LICENSE).
