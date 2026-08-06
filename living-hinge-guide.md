@@ -469,6 +469,11 @@ living-hinge-straight-40x120mm.svg            <- bridge 2.0, the default, keeps 
 living-hinge-straight-40x120mm-bridge2.5.svg
 ```
 
+These six are committed, in **`coupons/`**, along with a single 290 × 132 mm sheet
+holding all of them — `coupons/coupon-sheet-bridge-sweep-290x132mm.svg` — and
+`coupons/README.md`, which records the settings held constant across the sweep. You
+can cut the sheet without running anything.
+
 Cut all six on one sheet, in the grain orientation you will actually use. Then:
 
 1. **Bend each to 90°.** Note which snap immediately.

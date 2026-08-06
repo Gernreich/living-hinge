@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Living Hinge Generator — Operating Guide</title>
+<style>
+:root{--bg:#fbfbfa;--fg:#1a1c1e;--mut:#5b6067;--line:#e2e4e7;--card:#fff;--accent:#1d4ed8;
+--codebg:#f4f5f7;--thbg:#f0f1f3;--mark:#fff8c4}
+@media (prefers-color-scheme:dark){:root{--bg:#15171a;--fg:#e6e8ea;--mut:#9aa1a9;--line:#2b2f34;
+--card:#1b1e22;--accent:#7aa2f7;--codebg:#22262b;--thbg:#23272c;--mark:#4a411c}}
+:root[data-theme=dark]{--bg:#15171a;--fg:#e6e8ea;--mut:#9aa1a9;--line:#2b2f34;--card:#1b1e22;
+--accent:#7aa2f7;--codebg:#22262b;--thbg:#23272c;--mark:#4a411c}
+:root[data-theme=light]{--bg:#fbfbfa;--fg:#1a1c1e;--mut:#5b6067;--line:#e2e4e7;--card:#fff;
+--accent:#1d4ed8;--codebg:#f4f5f7;--thbg:#f0f1f3;--mark:#fff8c4}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font:16px/1.62 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
+-webkit-text-size-adjust:100%}
+.wrap{display:grid;grid-template-columns:250px minmax(0,1fr);gap:44px;max-width:1180px;
+margin:0 auto;padding:40px 28px 96px}
+nav{position:sticky;top:28px;align-self:start;max-height:calc(100vh - 56px);overflow:auto;
+border-right:1px solid var(--line);padding-right:16px;font-size:13.5px;line-height:1.45}
+nav b{display:block;font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--mut);
+margin:0 0 12px}
+nav a{display:block;color:var(--mut);text-decoration:none;padding:3px 0;border-radius:4px}
+nav a:hover{color:var(--accent)}
+nav a.l1{color:var(--fg);font-weight:640;margin-top:11px}
+nav a.l2{padding-left:12px}
+main{min-width:0}
+h1{font-size:1.62rem;line-height:1.25;letter-spacing:-.015em;margin:2.4em 0 .5em;
+padding-bottom:.32em;border-bottom:2px solid var(--line)}
+main>h1:first-child{margin-top:0;border-bottom:none;font-size:1.95rem}
+h2{font-size:1.16rem;margin:2em 0 .5em;letter-spacing:-.01em}
+h3{font-size:1.02rem;font-weight:650;margin:1.7em 0 .45em}
+p{margin:.85em 0}
+ul,ol{margin:.85em 0;padding-left:1.35em}
+li{margin:.3em 0}
+hr{border:0;border-top:1px solid var(--line);margin:2.6em 0}
+figure{margin:1.6em 0}
+figure svg,figure img{display:block;width:100%;max-width:100%;height:auto;
+border:1px solid var(--line);border-radius:10px}
+a{color:var(--accent)}
+code{font:13px/1.5 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+background:var(--codebg);padding:.1em .32em;border-radius:4px;
+border:1px solid color-mix(in srgb,var(--line) 70%,transparent)}
+pre{background:var(--codebg);border:1px solid var(--line);border-radius:9px;
+padding:14px 16px;overflow-x:auto;margin:1.1em 0}
+pre code{background:none;border:0;padding:0;font-size:12.8px;line-height:1.62;white-space:pre}
+.tw{overflow-x:auto;margin:1.15em 0;border:1px solid var(--line);border-radius:9px;
+background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{padding:8px 13px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--thbg);font-weight:630;white-space:nowrap;font-size:13px;
+letter-spacing:.01em}
+tbody tr:last-child td{border-bottom:0}
+tbody tr:hover{background:color-mix(in srgb,var(--thbg) 45%,transparent)}
+td code,th code{white-space:nowrap}
+.tog{position:fixed;top:14px;right:14px;z-index:9;background:var(--card);color:var(--mut);
+border:1px solid var(--line);border-radius:7px;padding:6px 11px;font-size:12.5px;cursor:pointer}
+.tog:hover{color:var(--accent)}
+@media (max-width:900px){.wrap{grid-template-columns:1fr;gap:20px;padding:26px 18px 72px}
+nav{position:static;max-height:none;border-right:0;border-bottom:1px solid var(--line);
+padding:0 0 16px;columns:2;column-gap:20px}}
+@media print{nav,.tog{display:none}.wrap{display:block;max-width:none;padding:0}
+pre,.tw{break-inside:avoid}h1{break-after:avoid}}
+</style>
+</head>
+<body>
+<button class="tog" type="button">theme</button>
+<div class="wrap">
+<nav><b>Contents</b><a class="l1" href="#living-hinge-generator--operating-guide">Living Hinge Generator — Operating Guide</a><a class="l2" href="#1-what-it-actually-does">1. What it actually does</a><a class="l2" href="#2-quick-start">2. Quick start</a><a class="l2" href="#3-complete-option-reference">3. Complete option reference</a><a class="l2" href="#4-suggested-starting-numbers">4. Suggested starting numbers</a><a class="l2" href="#5-the-eight-patterns">5. The eight patterns</a><a class="l2" href="#6---side-and---cell-are-targets-not-guarantees">6. --side and --cell are targets, not guarantees</a><a class="l2" href="#7-end-tabs--and-what-happens-when-you-minimise-them">7. End tabs — and what happens when you minimise them</a><a class="l2" href="#8-sizing-the-hinge-for-a-bend-radius">8. Sizing the hinge for a bend radius</a><a class="l2" href="#9-kerf">9. Kerf</a><a class="l2" href="#10-finding-your-real-numbers">10. Finding your real numbers</a><a class="l2" href="#11-output-format">11. Output format</a><a class="l2" href="#12-when-it-refuses">12. When it refuses</a><a class="l2" href="#13-scripting">13. Scripting</a><a class="l2" href="#14-gotchas">14. Gotchas</a><a class="l2" href="#15-known-limitations">15. Known limitations</a></nav>
+<main>
+<h1 id="living-hinge-generator--operating-guide">Living Hinge Generator — Operating Guide</h1>
+<p>Parametric lattice-hinge ("living hinge") SVG generator for laser cutting. Two files in <code>~/LaserMadeMusic/GIT/living-hinge/</code>:</p>
+<div class='tw'><table><thead><tr><th>File</th><th>Role</th></tr></thead><tbody><tr><td><code>living-hinge-generator.js</code></td><td>Library. <code>require()</code> it, call <code>generate({...})</code> → <code>{svg, stats, options}</code></td></tr><tr><td><code>living-hinge.js</code></td><td>CLI front end (executable, <code>#!/usr/bin/env node</code>)</td></tr></tbody></table></div>
+<p>Requires Node ≥ 10.12. No dependencies, no install step.</p>
+<p>&gt; <strong>The tuning numbers in this guide are starting points, not tested values.</strong> They are &gt; derived from geometry, not from cut material. Nothing in this toolchain has been &gt; validated against real ply or acrylic. Cut a coupon (see <a href="#10-finding-your-real-numbers">Finding your real &gt; numbers</a>) before committing to a full panel.</p>
+<hr>
+<h2 id="1-what-it-actually-does">1. What it actually does</h2>
+<p>It emits an SVG containing a rectangular panel outline plus a field of cuts that let a rigid sheet bend along one axis (or two, for the biaxial patterns). It does <strong>not</strong> do nesting, tabs, joinery, or kerf compensation — it produces the hinge field and the panel rectangle, and you compose that into a larger part.</p>
+<p>Everything is computed in millimetres internally. <code>--units in</code> only changes what gets written out.</p>
+<h3 id="panel-convention">Panel convention</h3>
+<pre><code>        x = 0                                  x = width
+          |                                        |
+  y = 0   +----------------------------------------+  --.
+          |            solid end tab               |    | margin
+          +----------------------------------------+  --'
+          |  ====  ====  ====  ====  ====  ====    |
+          |    ====  ====  ====  ====  ====        |   hinge field
+          |  ====  ====  ====  ====  ====  ====    |   (rows of slits)
+          |    ====  ====  ====  ====  ====        |
+          +----------------------------------------+  --.
+          |            solid end tab               |    | margin
+  y=length+----------------------------------------+  --'
+
+          &lt;----------- width --------------&gt;
+          slits run ACROSS the width; the panel rolls ALONG the length</code></pre>
+<ul><li><strong><code>--width</code></strong> — the span the slits run across. The bend axis is parallel to this.</li><li><strong><code>--length</code></strong> — the direction the panel rolls up. More length = more rows = gentler curve.</li><li><strong><code>--margin</code></strong> — solid end tab at each end of the <em>length</em>. This is your glue/fixing surface.</li></ul>
+<p><strong>The rule everything else serves:</strong> slits must reach <code>x=0</code> and <code>x=width</code>. An uncut rail down either long edge stiffens the entire panel and it will not flex. The generator enforces this — it is why <code>--side</code> and <code>--cell</code> get resized (§6) and why the crosshatch edge cuts are exempt from <code>--minSliver</code>.</p>
+<hr>
+<h2 id="2-quick-start">2. Quick start</h2>
+<pre><code>cd ~/LaserMadeMusic/GIT/living-hinge
+
+./living-hinge.js                                  # 50 × 200 mm straight, to ./
+./living-hinge.js -p wave -w 80 -l 300             # wave pattern, 80 × 300 mm
+./living-hinge.js -p dogbone -w 2in -l 10in        # inch input, mm output
+./living-hinge.js -p chevron -w 3in --units in     # inch input AND inch output
+./living-hinge.js --all --outdir ./hinges          # all 8 patterns at one size
+./living-hinge.js --list                           # pattern names + their defaults
+./living-hinge.js --help                           # full option list</code></pre>
+<p>Add <code>--dry-run</code> to any command to see the stats and the filename it <em>would</em> write without touching the disk. Use it constantly — it is instant and it is how you iterate.</p>
+<pre><code>./living-hinge.js -p dogbone --bridge 2.5 --hole 0.4 --dry-run
+# dogbone  slit=10.5  bridge=2.5  hole=0.4  holeDia=0.8  ligament=1.7  pitch=3  rows=62 ...</code></pre>
+<h3 id="as-a-library">As a library</h3>
+<pre><code>var gen = require('./living-hinge-generator');
+var r = gen.generate({ pattern: 'wave', width: 80, height: 300, bridge: 1.5 });
+// r.svg     -&gt; the SVG string
+// r.stats   -&gt; { slit, bridge, wavelength, ..., pattern, cuts }
+// r.options -&gt; every resolved option, after defaults and fitting</code></pre>
+<p>Note the library says <strong><code>height</code></strong>, the CLI says <strong><code>--length</code></strong>. Same thing.</p>
+<hr>
+<h2 id="3-complete-option-reference">3. Complete option reference</h2>
+<h3 id="panel">Panel</h3>
+<div class='tw'><table><thead><tr><th>Option</th><th>Default</th><th>Notes</th></tr></thead><tbody><tr><td><code>-p, --pattern &lt;name&gt;</code></td><td><code>straight</code></td><td>One of the eight in §5</td></tr><tr><td><code>-w, --width N</code></td><td>50</td><td>Span the slits cross</td></tr><tr><td><code>-l, --length N</code></td><td>200</td><td>Roll direction</td></tr><tr><td><code>--margin N</code></td><td>6</td><td>Solid end tab at each end. See §7</td></tr><tr><td>`--units mm\</td><td>in`</td><td><code>mm</code></td><td>Output units only</td></tr></tbody></table></div>
+<h3 id="tuning-pattern-dependent">Tuning (pattern-dependent)</h3>
+<div class='tw'><table><thead><tr><th>Option</th><th>Default</th><th>Applies to</th></tr></thead><tbody><tr><td><code>--pitch N</code></td><td>3 (3.5 torsional)</td><td>straight, dogbone, wave, chevron, torsional</td></tr><tr><td><code>--bridge N</code></td><td>2 (3 dogbone)</td><td>straight, dogbone, wave, chevron, torsional</td></tr><tr><td><code>--segments N</code></td><td>scales with width</td><td>the same five — whole number, min 2</td></tr><tr><td><code>--targetSlit N</code></td><td>12</td><td>the same five — what <code>--segments</code> aims for</td></tr><tr><td><code>--hole N</code></td><td>0.5</td><td>dogbone only — <strong>radius</strong>, not diameter</td></tr><tr><td><code>--cap N</code></td><td>1</td><td>torsional only — end-cap half-length</td></tr><tr><td><code>--wavelength N</code></td><td>13</td><td>wave, chevron</td></tr><tr><td><code>--amplitude N</code></td><td>1</td><td>wave, chevron — half-height</td></tr><tr><td><code>--step N</code></td><td>0.5</td><td>wave only — polyline resolution</td></tr><tr><td><code>--side N</code></td><td>5</td><td>honeycomb — <em>target</em>, gets fitted (§6)</td></tr><tr><td><code>--cell N</code></td><td>6.25</td><td>auxetic, crosshatch — <em>target</em>, gets fitted (§6)</td></tr><tr><td><code>--gap N</code></td><td>1.2 / 1.5</td><td>honeycomb, auxetic — uncut node size</td></tr><tr><td><code>--slit N</code></td><td>4.5</td><td>crosshatch only</td></tr><tr><td><code>--minSliver N</code></td><td>1</td><td>all — drop clipped cuts shorter than this</td></tr></tbody></table></div>
+<p>An option that does not apply to your pattern is <strong>reported on stderr and ignored</strong>, not silently dropped:</p>
+<pre><code>living-hinge: --hole does not apply to straight; ignoring it</code></pre>
+<h3 id="output--safety">Output &amp; safety</h3>
+<div class='tw'><table><thead><tr><th>Option</th><th>Default</th><th>Notes</th></tr></thead><tbody><tr><td><code>-o, --out &lt;file&gt;</code></td><td>—</td><td>Complete path. Appends <code>.svg</code> if missing. Not combinable with <code>--outdir</code>/<code>--all</code></td></tr><tr><td><code>--outdir &lt;dir&gt;</code></td><td><code>.</code></td><td>Created if absent</td></tr><tr><td><code>-a, --all</code></td><td>—</td><td>Every pattern at these dimensions</td></tr><tr><td><code>-f, --force</code></td><td>—</td><td>Overwrite. <strong>Default is to refuse</strong></td></tr><tr><td><code>--dry-run</code></td><td>—</td><td>Stats only, no files</td></tr><tr><td><code>--maxCuts N</code></td><td>200000</td><td>Ceiling on emitted cuts</td></tr><tr><td><code>--maxPoints N</code></td><td>3200000</td><td>Ceiling on polyline coordinates</td></tr></tbody></table></div>
+<p><code>--maxCuts</code> / <code>--maxPoints</code> exist so a mistyped feature size fails in a second instead of exhausting memory. You will only ever touch them for a genuinely enormous panel.</p>
+<h3 id="input-formats">Input formats</h3>
+<ul><li>Bare numbers are <strong>millimetres</strong>: <code>--width 80</code></li><li>Suffixes convert that one value: <code>--width 2in</code>, <code>--width 3cm</code>, <code>--width 80mm</code>, <code>--width 2"</code></li><li>A suffix does <strong>not</strong> change output units. Only <code>--units in</code> does that.</li><li><code>--segments</code>, <code>--maxCuts</code>, <code>--maxPoints</code> are counts: no suffix, no fractions.</li><li><code>--flag=value</code> and <code>-w80</code> and <code>-w 80</code> all work.</li></ul>
+<hr>
+<h2 id="4-suggested-starting-numbers">4. Suggested starting numbers</h2>
+<p><strong>Unvalidated.</strong> Treat as a first guess to bracket with a coupon test.</p>
+<div class='tw'><table><thead><tr><th>Material</th><th><code>--bridge</code></th><th><code>--pitch</code></th><th><code>--targetSlit</code></th><th>Notes</th></tr></thead><tbody><tr><td>3 mm ply</td><td>1.5 – 2.0</td><td>3.0</td><td>12</td><td>The shipped defaults sit at the stiff/strong end</td></tr><tr><td>3 mm acrylic</td><td>2.0 – 2.5</td><td>3.0 – 3.5</td><td>12</td><td>Brittle. Go wider on the bridge, expect fewer bend cycles</td></tr><tr><td>1.5 mm ply / card</td><td>1.0 – 1.5</td><td>2.0 – 2.5</td><td>8 – 10</td><td>Thinner stock tolerates a narrower ligament</td></tr><tr><td>6 mm ply</td><td>2.5 – 3.5</td><td>4.0 – 5.0</td><td>15 – 20</td><td>Thick stock needs a long ligament to bend at all</td></tr></tbody></table></div>
+<p>The two knobs that matter most:</p>
+<ul><li><strong><code>--bridge</code> is the ligament.</strong> It is the uncut material between collinear slits, and it is what actually bends and what actually breaks. Too narrow → snaps. Too wide → the panel stays rigid. This is the number to sweep first.</li><li><strong><code>--pitch</code> is the row spacing.</strong> Smaller pitch = more rows over the same length = tighter achievable radius and a smoother curve, at the cost of more cutting time and a weaker panel overall.</li></ul>
+<p><code>--targetSlit</code> sets slit length indirectly: the generator picks <code>segments = round(width / targetSlit)</code>, so slit length stays near your target as panels get wider. Prefer it over <code>--segments</code>, which hardcodes a count that stops making sense at a different width. If you pass both, <code>--segments</code> wins and you get a warning.</p>
+<hr>
+<h2 id="5-the-eight-patterns">5. The eight patterns</h2>
+<p>Stats below are real output at the default <strong>50 × 200 mm, margin 6</strong>.</p>
+<h3 id="straight--the-default-start-here">straight — the default; start here</h3>
+<p>Plain staggered slits. Fewest cuts, fastest to cut, strongest for a given bridge.</p>
+<pre><code>====  ====  ====  ====        row A
+  ====  ====  ====  ====      row B (offset half a period)
+====  ====  ====  ====        row A</code></pre>
+<p><code>slit=11 bridge=2 pitch=3 rows=62 segments=4</code> → <strong>279 cuts, 9.0 KB</strong></p>
+<ul><li><strong>Use when:</strong> single-axis bend, and you have no reason to use anything else.</li><li><strong>Optimal-ish:</strong> <code>--bridge 1.5 --pitch 3</code> for 3 mm ply. Drop pitch to 2.5 for a tighter curve.</li><li>Stress concentrates at the slit ends. If it cracks there, switch to <code>dogbone</code>.</li></ul>
+<h3 id="dogbone--straight-with-the-stress-risers-removed">dogbone — straight, with the stress risers removed</h3>
+<p>Adds a relief hole at each slit end. This is the fix for cracking at slit tips.</p>
+<p><code>slit=10.25 bridge=3 hole=0.5 holeDia=1 ligament=2 pitch=3 rows=62</code> → <strong>713 cuts, 28.5 KB</strong></p>
+<ul><li><strong><code>--hole</code> is a RADIUS.</strong> The stats report both <code>hole</code> (radius, matching the flag) and <code>holeDia</code>.</li><li><strong>Watch <code>ligament</code></strong> — the stat that predicts failure. <code>ligament = bridge − 2 × hole</code>, and it is the real load-bearing width. The generator refuses <code>ligament ≤ 0</code>.</li><li>Because the holes eat into it, dogbone needs a <strong>wider <code>--bridge</code> than straight</strong> for the same strength. Default is 3 vs straight's 2 for exactly this reason.</li><li><strong>Optimal-ish:</strong> <code>--bridge 3 --hole 0.4</code> → ligament 2.2. Raise the hole only if it is still cracking at the tips.</li><li>~2.5× the cuts of straight. Noticeably longer cut time.</li></ul>
+<h3 id="wave--sinusoidal-slits">wave — sinusoidal slits</h3>
+<p>Longer ligament path for the same pitch, so it bends more easily than straight, and the curved path distributes stress instead of concentrating it.</p>
+<p><code>slit=11 bridge=2 wavelength=13 amplitude=1 pitch=3 rows=62</code> → <strong>279 cuts, 74.3 KB</strong></p>
+<ul><li>All rows share the sine phase, so curves stay parallel and the spacing never closes up.</li><li><strong>Largest file of the eight</strong> (74 KB) — each slit is a polyline. <code>--step</code> controls resolution: 0.5 default, 0.25 for a visibly smoother curve at ~2× the file size. Below ~0.1 you are cutting finer than the beam and just making the file huge.</li><li><strong>Optimal-ish:</strong> <code>--wavelength 13 --amplitude 1 --bridge 1.5</code>. Keep amplitude well under half the pitch or adjacent rows crowd each other visually (they never actually collide — shared phase guarantees it).</li></ul>
+<h3 id="chevron--zigzag-slits">chevron — zigzag slits</h3>
+<p>Wave's behaviour with straight-line segments. Cuts faster, file is 4× smaller (17 KB vs 74 KB), sharper look.</p>
+<p><code>slit=11 bridge=2 wavelength=13 amplitude=1 pitch=3 rows=62</code> → <strong>279 cuts, 17.2 KB</strong></p>
+<ul><li><strong>Use when:</strong> you want wave's compliance but not its file size or cut time.</li><li><strong>Optimal-ish:</strong> same as wave. This is the better default of the two unless you specifically want the curve.</li></ul>
+<h3 id="torsional--i-cuts-slit-with-perpendicular-end-caps">torsional — I-cuts (slit with perpendicular end caps)</h3>
+<p>Each slit gets a short perpendicular cap at each end, lengthening the torsion path. More compliant than straight at the same bridge.</p>
+<p><code>slit=11 bridge=2 cap=1 pitch=3.5 rows=53</code> → <strong>608 cuts, 20.3 KB</strong></p>
+<ul><li>This is an <strong>I-cut, not a spiral/S-flexure.</strong> Spirals do not tile cleanly to the panel edge.</li><li><strong>Hard constraint: <code>2 × cap ≤ pitch</code>.</strong> Beyond that, caps from adjacent rows meet and the panel is sliced into strips. The generator refuses.</li><li>Default pitch is 3.5 (not 3) to leave cap room.</li><li><strong>Optimal-ish:</strong> <code>--cap 1 --pitch 3.5</code>. To go more compliant, raise both together — <code>--cap 1.5 --pitch 4</code>.</li></ul>
+<h3 id="honeycomb--hex-lattice-biaxial">honeycomb — hex lattice (biaxial)</h3>
+<p>Compound curvature: bends on both axes. Hex vertices stay uncut and act as the hinge nodes.</p>
+<p><code>side=4.8113 gap=1.2 slit=3.6113</code> → <strong>481 cuts, 23.6 KB</strong></p>
+<ul><li><strong><code>--side</code> is a target.</strong> Delivered 4.8113 from a requested 5 — see §6.</li><li><strong><code>--gap</code> is the uncut node.</strong> It must be shorter than the fitted side or there is no cut left. Smaller gap = more compliant and more fragile.</li><li><strong>Optimal-ish:</strong> <code>--side 5 --gap 1.2</code>. For more flex, <code>--gap 0.9</code>; expect the nodes to become the failure point.</li></ul>
+<h3 id="auxetic--rotating-squares-biaxial">auxetic — rotating squares (biaxial)</h3>
+<p>Squares joined only at their corners; those corners rotate. Negative Poisson's ratio — it expands laterally when stretched, so it forms domes rather than cylinders.</p>
+<p><code>cell=6.25 gap=1.5 slit=4.75</code> → <strong>518 cuts, 20.0 KB</strong></p>
+<ul><li><strong>Use when:</strong> you need a dome/saddle, not a roll.</li><li><strong><code>--cell</code> is a target</strong> (fitted, §6). At 50 mm wide, 6.25 divides evenly so you get exactly what you asked for.</li><li><strong>Optimal-ish:</strong> <code>--cell 6.25 --gap 1.5</code>. Smaller cells = finer, more compliant, more cuts.</li></ul>
+<h3 id="crosshatch--alternating-short-slits-biaxial">crosshatch — alternating short slits (biaxial)</h3>
+<p>Checkerboard of horizontal and vertical slits. Fewest cuts of the three biaxial patterns and the simplest to reason about.</p>
+<p><code>cell=6.25 slit=4.5 cells=8 x 30 edgeSlits=30</code> → <strong>240 cuts, 11.4 KB</strong></p>
+<ul><li>Outer-column slits are deliberately run out to the panel edge. Those specific cuts are <strong>exempt from <code>--minSliver</code></strong> — dropping them would restore the edge rail.</li><li><strong>Hard constraint: <code>slit &lt; 2 × cell</code>.</strong> At or beyond that, neighbouring slits merge into one continuous cut and the panel becomes a comb. Refused.</li><li><strong>Optimal-ish:</strong> <code>--cell 6.25 --slit 4.5</code> (slit ≈ 0.72 × cell). Raising slit toward the cell size increases compliance; past the cell size you are into the merge risk zone.</li></ul>
+<h3 id="picking-one">Picking one</h3>
+<div class='tw'><table><thead><tr><th>Need</th><th>Use</th></tr></thead><tbody><tr><td>Simple single-axis bend</td><td><code>straight</code></td></tr><tr><td>It cracked at the slit ends</td><td><code>dogbone</code></td></tr><tr><td>More compliance, single axis</td><td><code>chevron</code> (or <code>wave</code> if you want the look)</td></tr><tr><td>Maximum compliance, single axis</td><td><code>torsional</code></td></tr><tr><td>Cylinder in two directions</td><td><code>honeycomb</code></td></tr><tr><td>Dome / saddle</td><td><code>auxetic</code></td></tr><tr><td>Biaxial, minimum cut time</td><td><code>crosshatch</code></td></tr></tbody></table></div>
+<hr>
+<h2 id="6---side-and---cell-are-targets-not-guarantees">6. <code>--side</code> and <code>--cell</code> are targets, not guarantees</h2>
+<p>The three lattice patterns resize their cell so the tiling divides the panel width exactly, putting a cut on both long edges. Without it you get an uncut rail up to ~1.2 mm wide down one side, and the panel will not flex.</p>
+<pre><code>width 30 mm   --side 5 → 4.9487   (1.0% off)     --cell 6.25 → 6.00 (4.0% off)
+width 50 mm   --side 5 → 4.8113   (3.8% off)     --cell 6.25 → 6.25 (exact)
+width 75 mm   --side 5 → 5.0943   (1.9% off)     --cell 6.25 → 6.25 (exact)
+width 100 mm  --side 5 → 5.0204   (0.4% off)     --cell 6.25 → 6.25 (exact)</code></pre>
+<p>Formulas: auxetic/crosshatch use <code>cell = width / round(width / cell)</code>; honeycomb uses <code>side = 2 × width / (√3 × m)</code>.</p>
+<p>Deviation is typically under 4%. The delivered value appears in the stats line, the SVG <code>&lt;desc&gt;</code>, <strong>and the filename</strong> — so a file is always named for the geometry it contains. If you need an exact cell size, pick a width that is a whole multiple of it.</p>
+<hr>
+<h2 id="7-end-tabs--and-what-happens-when-you-minimise-them">7. End tabs — and what happens when you minimise them</h2>
+<p><code>--margin</code> is the solid band at each end of the <strong>length</strong> axis. It is what you glue, screw, or slot into the rest of the assembly. Cuts never enter it.</p>
+<div class='tw'><table><thead><tr><th><code>--margin</code></th><th>Rows (50×200, pitch 3)</th><th>First row at y=</th></tr></thead><tbody><tr><td>0</td><td>66</td><td>2.5</td></tr><tr><td>1</td><td>66</td><td>2.5</td></tr><tr><td>3</td><td>64</td><td>5.5</td></tr><tr><td>6 <em>(default)</em></td><td>62</td><td>8.5</td></tr><tr><td>12</td><td>58</td><td>14.5</td></tr><tr><td>20</td><td>53</td><td>22.0</td></tr></tbody></table></div>
+<p><strong>You never get a zero end tab, even at <code>--margin 0</code>.</strong> Rows are centred in the band with a half-pitch offset, so the first row lands at least <code>pitch/2</code> from the edge. At <code>--margin 0</code> with pitch 3 the first row sits at y=2.5, leaving a 2.5 mm solid strip. The effective tab is:</p>
+<pre><code>effective tab  =  margin  +  (leftover ÷ 2)  +  pitch/2      where leftover = span − rows × pitch</code></pre>
+<p>So the practical floor for the row-based patterns is about <code>pitch/2</code> — roughly 1.5 mm at default pitch. <strong>The biaxial patterns behave differently:</strong> their cuts are clipped straight at the band edge, so at <code>--margin 0</code> honeycomb and auxetic really do cut to y=0 and the panel has no tab at all.</p>
+<h3 id="guidance">Guidance</h3>
+<ul><li><strong>Don't go below ~3 mm</strong> if the tab is a glue surface. A 2.5 mm strip in 3 mm ply, with a full-width slit immediately inboard of it, is a tear-out waiting to happen.</li><li><strong>5–8 mm</strong> is a sane general range; 6 is the default for that reason.</li><li><strong>Go larger (10–20 mm)</strong> if you are screwing, bolting, or slotting through the tab, or if the hinge carries load in tension.</li><li><strong><code>--margin 0</code> is legitimate</strong> when the hinge field runs into a larger part that provides its own fixing, or when you will trim the ends after cutting. Just know you are giving up the attachment surface.</li><li>Shrinking the margin buys you rows — 6→0 gains 4 rows on a 200 mm panel, about 6%. That is rarely worth losing the tab for. <strong>If you need more rows, lengthen the panel or reduce the pitch</strong>; both are much better levers than eating the tab.</li></ul>
+<hr>
+<h2 id="8-sizing-the-hinge-for-a-bend-radius">8. Sizing the hinge for a bend radius</h2>
+<p>A lattice hinge approximates an arc, so the hinge field length is arc length:</p>
+<pre><code>hinge length  =  radius × angle(radians)
+rows          =  hinge length ÷ pitch
+panel length  =  hinge length + 2 × margin</code></pre>
+<div class='tw'><table><thead><tr><th>Target radius</th><th>90° needs</th><th>180° needs</th><th>Rows @ pitch 3 (90°)</th></tr></thead><tbody><tr><td>5 mm</td><td>7.9 mm</td><td>15.7 mm</td><td>3</td></tr><tr><td>10 mm</td><td>15.7 mm</td><td>31.4 mm</td><td>6</td></tr><tr><td>15 mm</td><td>23.6 mm</td><td>47.1 mm</td><td>8</td></tr><tr><td>20 mm</td><td>31.4 mm</td><td>62.8 mm</td><td>11</td></tr><tr><td>25 mm</td><td>39.3 mm</td><td>78.5 mm</td><td>14</td></tr><tr><td>30 mm</td><td>47.1 mm</td><td>94.2 mm</td><td>16</td></tr><tr><td>50 mm</td><td>78.5 mm</td><td>157.1 mm</td><td>27</td></tr><tr><td>75 mm</td><td>117.8 mm</td><td>235.6 mm</td><td>40</td></tr></tbody></table></div>
+<p>Read the other way — what a given panel can do at pitch 3, margin 6:</p>
+<div class='tw'><table><thead><tr><th>Panel length</th><th>Hinge band</th><th>Rows</th><th>Gentlest 90° radius</th></tr></thead><tbody><tr><td>40 mm</td><td>28 mm</td><td>9</td><td>~17 mm</td></tr><tr><td>60 mm</td><td>48 mm</td><td>16</td><td>~31 mm</td></tr><tr><td>80 mm</td><td>68 mm</td><td>22</td><td>~42 mm</td></tr><tr><td>100 mm</td><td>88 mm</td><td>29</td><td>~55 mm</td></tr><tr><td>200 mm</td><td>188 mm</td><td>62</td><td>~118 mm</td></tr><tr><td>300 mm</td><td>288 mm</td><td>96</td><td>~183 mm</td></tr></tbody></table></div>
+<p>A panel <em>can</em> bend tighter than the figure in the last column — you are then asking fewer rows to take more angle each, which is exactly what breaks ligaments. Treat that column as "the radius this panel reaches comfortably", and if you need tighter, <strong>add rows</strong> (longer panel or smaller pitch) rather than forcing it.</p>
+<p>Fewer than ~6 rows in the bend behaves like a crease, not a curve.</p>
+<hr>
+<h2 id="9-kerf">9. Kerf</h2>
+<p>The generator emits <strong>zero-width centrelines and does no kerf compensation.</strong> Your beam removes material on both sides of every line, so the real ligament comes out narrower than the nominal <code>--bridge</code>.</p>
+<pre><code>actual ligament  ≈  bridge − kerf                       (straight, wave, chevron, torsional)
+actual ligament  ≈  bridge − 2 × hole − kerf            (dogbone)</code></pre>
+<p>Typical CO₂ kerf in 3 mm ply is 0.15–0.20 mm. Dogbone at defaults:</p>
+<div class='tw'><table><thead><tr><th>Kerf</th><th>hole 0.3</th><th>hole 0.4</th><th>hole 0.5</th><th>hole 0.6</th></tr></thead><tbody><tr><td>0.10 mm</td><td>2.30</td><td>2.10</td><td>1.90</td><td>1.70</td></tr><tr><td>0.15 mm</td><td>2.25</td><td>2.05</td><td>1.85</td><td>1.65</td></tr><tr><td>0.20 mm</td><td>2.20</td><td>2.00</td><td>1.80</td><td>1.60</td></tr><tr><td>0.25 mm</td><td>2.15</td><td>1.95</td><td>1.75</td><td>1.55</td></tr></tbody></table></div>
+<p><em>(bridge 3, ligament in mm)</em></p>
+<p><strong>Add your kerf to <code>--bridge</code></strong> if you want the nominal ligament you designed. Measure kerf once on your machine and stock: cut a 20 mm square, measure it, the shortfall is one kerf.</p>
+<hr>
+<h2 id="10-finding-your-real-numbers">10. Finding your real numbers</h2>
+<p>The defaults are geometry, not experience. One afternoon of coupons replaces all the guessing in §4.</p>
+<pre><code>cd ~/LaserMadeMusic/GIT/living-hinge
+mkdir -p coupons
+for b in 1.0 1.25 1.5 1.75 2.0 2.5; do
+  ./living-hinge.js -w 40 -l 120 --bridge $b --outdir ./coupons
+done</code></pre>
+<p>Each lands in its own file, since differing tuning goes into the filename:</p>
+<pre><code>living-hinge-straight-40x120mm-bridge1.svg
+living-hinge-straight-40x120mm-bridge1.25.svg
+living-hinge-straight-40x120mm-bridge1.5.svg
+living-hinge-straight-40x120mm-bridge1.75.svg
+living-hinge-straight-40x120mm.svg            &lt;- bridge 2.0, the default, keeps the plain name
+living-hinge-straight-40x120mm-bridge2.5.svg</code></pre>
+<p>These six are committed, in <strong><code>coupons/</code></strong>, along with a single 290 × 132 mm sheet holding all of them — <code>coupons/coupon-sheet-bridge-sweep-290x132mm.svg</code> — and <code>coupons/README.md</code>, which records the settings held constant across the sweep. You can cut the sheet without running anything.</p>
+<p>Cut all six on one sheet, in the grain orientation you will actually use. Then:</p>
+<ol><li><strong>Bend each to 90°.</strong> Note which snap immediately.</li><li><strong>Cycle the survivors 20–30 times.</strong> Fatigue is what kills living hinges in service, not the first bend.</li><li><strong>Bend one to destruction</strong> to find the margin you actually have.</li><li>Record the narrowest bridge that survives cycling, then <strong>add 0.25 mm</strong> as your working value.</li></ol>
+<p>Repeat per material and per thickness. Grain direction matters in ply — slits running across the grain behave differently from slits running along it, so test the orientation you will build in.</p>
+<p><strong>When you have real numbers, say so</strong> and they will be written into <code>DEFAULTS</code> in the generator and into the project memory, so future sessions start from measurements instead of estimates.</p>
+<hr>
+<h2 id="11-output-format">11. Output format</h2>
+<pre><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+     width="50mm" height="200mm" viewBox="0 0 50 200"&gt;
+  &lt;title&gt;Living hinge - straight - 50mm x 200mm&lt;/title&gt;
+  &lt;desc&gt;1 user unit = 1 mm. Panel 50mm x 200mm, solid end tabs 6mm. Pattern: straight; ...&lt;/desc&gt;
+  &lt;g fill="none" stroke="#000000" stroke-width="0.02" stroke-linecap="butt"&gt;
+    &lt;g id="outline"&gt;&lt;rect x="0" y="0" width="50" height="200"/&gt;&lt;/g&gt;
+    &lt;g id="hinge-slits"&gt; ... &lt;/g&gt;
+  &lt;/g&gt;
+&lt;/svg&gt;</code></pre>
+<ul><li><strong>Physical size is declared</strong> (<code>width="50mm"</code>), with <code>viewBox</code> at 1 user unit = 1 mm. Import at 100% and it is correct size.</li><li><strong>Two groups.</strong> <code>#outline</code> is the panel rectangle — <strong>delete it</strong> when embedding the hinge into a larger part. <code>#hinge-slits</code> is the cut field.</li><li><code>fill="none"</code>, black hairline <strong>0.02 mm stroke</strong>, so cutter software reads vector cut rather than raster engrave.</li><li>With <code>--units in</code>: <code>width="1.9685in"</code>, viewBox in 1/96 in units, stroke 0.0756 (still 0.02 mm). Geometry is identical — only the units change.</li><li>Coordinates are rounded to 4 decimal places.</li><li>The <code>&lt;desc&gt;</code> carries the full parameter set, so a stray SVG is self-documenting. Open it in a text editor to recover what generated it.</li></ul>
+<h3 id="filenames">Filenames</h3>
+<pre><code>living-hinge-&lt;pattern&gt;-&lt;width&gt;x&lt;length&gt;&lt;units&gt;[-&lt;tuning&gt;].svg</code></pre>
+<p>Default runs stay short (<code>living-hinge-straight-50x200mm.svg</code>). Any option differing from that pattern's default is appended (<code>-bridge3</code>, <code>-margin20</code>, <code>-pitch2.5-bridge4</code>), so iterating never overwrites the previous variant. Fitted values are recorded as delivered (<code>-side5.7735</code>, not <code>-side6</code>).</p>
+<p>Existing files are <strong>never overwritten without <code>--force</code></strong>.</p>
+<hr>
+<h2 id="12-when-it-refuses">12. When it refuses</h2>
+<p>The generator declines anything that would destroy the panel rather than cutting it. Every message names both the offending option and the way out.</p>
+<div class='tw'><table><thead><tr><th>Message</th><th>Cause</th><th>Fix</th></tr></thead><tbody><tr><td><code>relief holes of radius 1.5mm meet across a 3mm bridge (ligament 0mm)</code></td><td>Dogbone holes overlap; bridge cut through</td><td>Lower <code>--hole</code> or raise <code>--bridge</code></td></tr><tr><td><code>caps of 3mm meet across a 3.5mm pitch</code></td><td>Torsional caps merge across rows</td><td>Lower <code>--cap</code> or raise <code>--pitch</code></td></tr><tr><td><code>gap 6mm is not shorter than the 4.8113mm hex side</code></td><td>No cut left after node shortening</td><td>Lower <code>--gap</code> or raise <code>--side</code></td></tr><tr><td><code>slit 14mm spans 12.5mm of alternating cells</code></td><td>Crosshatch slits merge into a continuous cut</td><td>Lower <code>--slit</code> or raise <code>--cell</code></td></tr><tr><td><code>bridge 20mm is too wide for 4 segments across 50mm</code></td><td>No room for slits</td><td>Lower <code>--bridge</code> or widen the panel</td></tr><tr><td><code>pitch 30mm leaves no room for a row in the 8mm between the end tabs</code></td><td>Panel too short for one row</td><td>Lower <code>--pitch</code>, lengthen, or lower <code>--margin</code></td></tr><tr><td><code>every cut came out shorter than --minSliver (1mm) and was dropped</code></td><td>Feature smaller than the sliver threshold</td><td>Raise the cut length or lower <code>--minSliver</code></td></tr><tr><td><code>--segments must be at least 2</code></td><td>One segment spans the full width</td><td>Use ≥ 2</td></tr><tr><td><code>--pitch must be greater than 0mm</code></td><td>Zero/negative length</td><td>Positive values only</td></tr><tr><td><code>cut budget exceeded (--maxCuts 200000)</code></td><td>Feature size tiny for the panel</td><td>Coarsen, or raise <code>--maxCuts</code></td></tr><tr><td><code>polyline point budget exceeded (--maxPoints 3200000)</code></td><td><code>--step</code> far too fine</td><td>Raise <code>--step</code>, or raise <code>--maxPoints</code></td></tr></tbody></table></div>
+<p>Set <code>LIVING_HINGE_DEBUG=1</code> for a stack trace on unexpected errors.</p>
+<hr>
+<h2 id="13-scripting">13. Scripting</h2>
+<ul><li>Exit <strong>0</strong> on success, <strong>1</strong> on any failure.</li><li>With <code>--all</code>, an unbuildable pattern is reported on stderr and skipped; the rest still generate and the exit status is <strong>1</strong>. Check it — a partial run looks like a success in the file listing.</li><li>Stats go to <strong>stdout</strong>, warnings and errors to <strong>stderr</strong>.</li></ul>
+<pre><code>./living-hinge.js --all --width 5 --outdir ./tiny || echo "some patterns failed"</code></pre>
+<hr>
+<h2 id="14-gotchas">14. Gotchas</h2>
+<ul><li><strong>CLI <code>--length</code> = library <code>height</code>.</strong> Easy to trip over when moving between the two.</li><li><strong><code>--hole</code> is a radius.</strong> The stats report <code>hole</code> (radius) and <code>holeDia</code> (diameter).</li><li><strong><code>--segments</code> silently outranks <code>--targetSlit</code></strong> — you get a warning, but segments wins.</li><li><strong>A unit suffix on an input does not change the output units.</strong> <code>--width 2in</code> gives a 50.8 mm panel written in mm. You need <code>--units in</code> for inch output.</li><li><strong><code>--out</code> will not accept a directory</strong>; use <code>--outdir</code>.</li><li><strong><code>--all</code> ignores <code>--pattern</code></strong> and refuses the combination rather than guessing.</li><li><strong>Wave files are large</strong> (74 KB at defaults, ~4× chevron). Some cutter software is slow with thousands of polyline points.</li><li><strong>The outline rect is not counted in <code>cuts</code></strong> — it is the panel boundary, not a hinge cut.</li><li><strong>Defaults are aimed at ~3 mm ply/acrylic.</strong> At a very different thickness, start from §4 rather than the shipped defaults.</li></ul>
+<hr>
+<h2 id="15-known-limitations">15. Known limitations</h2>
+<ul><li><strong>No kerf compensation.</strong> Centrelines only (§9).</li><li><strong>No nesting, tabs, or joinery.</strong> Hinge field and panel rectangle only.</li><li><strong>Bend radius is not enforced.</strong> Nothing stops you generating a hinge too short for the curve you want; §8 is guidance, not a guard.</li><li><strong>Material behaviour is not modelled.</strong> The generator knows geometry, not grain, moisture, ply quality, or acrylic brittleness.</li><li><strong>Biaxial patterns have uncrossed bands</strong> — vertical lines through the node columns that cross no cut. These are the rotating hinge nodes and are inherent to those lattices, not a defect.</li><li><strong>The defaults remain untested against cut material.</strong> This is the single biggest gap, and only a coupon closes it.</li></ul>
+</main>
+</div>
+<script>
+var r=document.documentElement,b=document.querySelector('.tog');
+function set(t){r.setAttribute('data-theme',t);try{localStorage.setItem('ctg-theme',t)}catch(e){}
+b.textContent=t==='dark'?'\u2600 light':'\u263e dark';}
+var saved=null;try{saved=localStorage.getItem('ctg-theme')}catch(e){}
+set(saved||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light'));
+b.addEventListener('click',function(){set(r.getAttribute('data-theme')==='dark'?'light':'dark')});
+</script>
+</body>
+</html>
