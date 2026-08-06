@@ -22,3 +22,4 @@ Three levels, most to least reliable.
 
   One thing to hand me in a new session that I won't otherwise know: your test-cut results. The defaults are still unvalidated, and that's recorded in the memory. Once you've cut a coupon, telling me "the 0.9 mm ligament snapped in 3 mm ply, 1.5 mm held" is worth more
   than any of the above — I'll update the defaults in the generator and correct the memory so the next session starts from real numbers instead of my estimates.
+
