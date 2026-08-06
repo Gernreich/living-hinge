@@ -580,7 +580,8 @@ Set `LIVING_HINGE_DEBUG=1` for a stack trace on unexpected errors.
 - **A unit suffix on an input does not change the output units.** `--width 2in` gives a
   50.8 mm panel written in mm. You need `--units in` for inch output.
 - **`--out` will not accept a directory**; use `--outdir`.
-- **`--all` ignores `--pattern`** and refuses the combination rather than guessing.
+- **`--all` refuses `--pattern`** rather than guessing which you meant — it does not
+  quietly ignore one of them.
 - **Wave files are large** (74 KB at defaults, ~4× chevron). Some cutter software is slow
   with thousands of polyline points.
 - **The outline rect is not counted in `cuts`** — it is the panel boundary, not a hinge cut.
