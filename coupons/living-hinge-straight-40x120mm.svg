@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+     width="40mm" height="120mm" viewBox="0 0 40 120">
+  <title>Living hinge - straight - 40mm x 120mm</title>
+  <desc>1 user unit = 1 mm. Panel 40mm x 120mm, solid end tabs 6mm. Pattern: straight; slit 12, bridge 2, pitch 3, rows 36, segments 3. Dimensions in mm unless noted.</desc>
+
+  <g fill="none" stroke="#000000" stroke-width="0.02" stroke-linecap="butt">
+
+    <g id="outline">
+      <rect x="0" y="0" width="40" height="120"/>
+    </g>
+
+    <g id="hinge-slits">
+    <path d="M0,7.5 H12"/>
+    <path d="M14,7.5 H26"/>
+    <path d="M28,7.5 H40"/>
+    <path d="M0,10.5 H5"/>
+    <path d="M7,10.5 H19"/>
+    <path d="M21,10.5 H33"/>
+    <path d="M35,10.5 H40"/>
+    <path d="M0,13.5 H12"/>
+    <path d="M14,13.5 H26"/>
+    <path d="M28,13.5 H40"/>
+    <path d="M0,16.5 H5"/>
+    <path d="M7,16.5 H19"/>
+    <path d="M21,16.5 H33"/>
+    <path d="M35,16.5 H40"/>
+    <path d="M0,19.5 H12"/>
+    <path d="M14,19.5 H26"/>
+    <path d="M28,19.5 H40"/>
+    <path d="M0,22.5 H5"/>
+    <path d="M7,22.5 H19"/>
+    <path d="M21,22.5 H33"/>
+    <path d="M35,22.5 H40"/>
+    <path d="M0,25.5 H12"/>
+    <path d="M14,25.5 H26"/>
+    <path d="M28,25.5 H40"/>
+    <path d="M0,28.5 H5"/>
+    <path d="M7,28.5 H19"/>
+    <path d="M21,28.5 H33"/>
+    <path d="M35,28.5 H40"/>
+    <path d="M0,31.5 H12"/>
+    <path d="M14,31.5 H26"/>
+    <path d="M28,31.5 H40"/>
+    <path d="M0,34.5 H5"/>
+    <path d="M7,34.5 H19"/>
+    <path d="M21,34.5 H33"/>
+    <path d="M35,34.5 H40"/>
+    <path d="M0,37.5 H12"/>
+    <path d="M14,37.5 H26"/>
+    <path d="M28,37.5 H40"/>
+    <path d="M0,40.5 H5"/>
+    <path d="M7,40.5 H19"/>
+    <path d="M21,40.5 H33"/>
+    <path d="M35,40.5 H40"/>
+    <path d="M0,43.5 H12"/>
+    <path d="M14,43.5 H26"/>
+    <path d="M28,43.5 H40"/>
+    <path d="M0,46.5 H5"/>
+    <path d="M7,46.5 H19"/>
+    <path d="M21,46.5 H33"/>
+    <path d="M35,46.5 H40"/>
+    <path d="M0,49.5 H12"/>
+    <path d="M14,49.5 H26"/>
+    <path d="M28,49.5 H40"/>
+    <path d="M0,52.5 H5"/>
+    <path d="M7,52.5 H19"/>
+    <path d="M21,52.5 H33"/>
+    <path d="M35,52.5 H40"/>
+    <path d="M0,55.5 H12"/>
+    <path d="M14,55.5 H26"/>
+    <path d="M28,55.5 H40"/>
+    <path d="M0,58.5 H5"/>
+    <path d="M7,58.5 H19"/>
+    <path d="M21,58.5 H33"/>
+    <path d="M35,58.5 H40"/>
+    <path d="M0,61.5 H12"/>
+    <path d="M14,61.5 H26"/>
+    <path d="M28,61.5 H40"/>
+    <path d="M0,64.5 H5"/>
+    <path d="M7,64.5 H19"/>
+    <path d="M21,64.5 H33"/>
+    <path d="M35,64.5 H40"/>
+    <path d="M0,67.5 H12"/>
+    <path d="M14,67.5 H26"/>
+    <path d="M28,67.5 H40"/>
+    <path d="M0,70.5 H5"/>
+    <path d="M7,70.5 H19"/>
+    <path d="M21,70.5 H33"/>
+    <path d="M35,70.5 H40"/>
+    <path d="M0,73.5 H12"/>
+    <path d="M14,73.5 H26"/>
+    <path d="M28,73.5 H40"/>
+    <path d="M0,76.5 H5"/>
+    <path d="M7,76.5 H19"/>
+    <path d="M21,76.5 H33"/>
+    <path d="M35,76.5 H40"/>
+    <path d="M0,79.5 H12"/>
+    <path d="M14,79.5 H26"/>
+    <path d="M28,79.5 H40"/>
+    <path d="M0,82.5 H5"/>
+    <path d="M7,82.5 H19"/>
+    <path d="M21,82.5 H33"/>
+    <path d="M35,82.5 H40"/>
+    <path d="M0,85.5 H12"/>
+    <path d="M14,85.5 H26"/>
+    <path d="M28,85.5 H40"/>
+    <path d="M0,88.5 H5"/>
+    <path d="M7,88.5 H19"/>
+    <path d="M21,88.5 H33"/>
+    <path d="M35,88.5 H40"/>
+    <path d="M0,91.5 H12"/>
+    <path d="M14,91.5 H26"/>
+    <path d="M28,91.5 H40"/>
+    <path d="M0,94.5 H5"/>
+    <path d="M7,94.5 H19"/>
+    <path d="M21,94.5 H33"/>
+    <path d="M35,94.5 H40"/>
+    <path d="M0,97.5 H12"/>
+    <path d="M14,97.5 H26"/>
+    <path d="M28,97.5 H40"/>
+    <path d="M0,100.5 H5"/>
+    <path d="M7,100.5 H19"/>
+    <path d="M21,100.5 H33"/>
+    <path d="M35,100.5 H40"/>
+    <path d="M0,103.5 H12"/>
+    <path d="M14,103.5 H26"/>
+    <path d="M28,103.5 H40"/>
+    <path d="M0,106.5 H5"/>
+    <path d="M7,106.5 H19"/>
+    <path d="M21,106.5 H33"/>
+    <path d="M35,106.5 H40"/>
+    <path d="M0,109.5 H12"/>
+    <path d="M14,109.5 H26"/>
+    <path d="M28,109.5 H40"/>
+    <path d="M0,112.5 H5"/>
+    <path d="M7,112.5 H19"/>
+    <path d="M21,112.5 H33"/>
+    <path d="M35,112.5 H40"/>
+    </g>
+
+  </g>
+</svg>
