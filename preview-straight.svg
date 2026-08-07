@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- DISPLAY ONLY - not a cut file. Generated at 60x90mm with the cut
+     stroke thickened from 0.02mm to 0.5mm so it is visible on a page.
+     Real output uses a hairline; see the guide. -->
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+     width="60mm" height="90mm" viewBox="0 0 60 90">
+  <title>straight living hinge — display only</title>
+  <desc>1 user unit = 1 mm. Panel 60mm x 90mm, solid end tabs 6mm. Pattern: straight; slit 10.4, bridge 2, pitch 3, rows 26, segments 5. Dimensions in mm unless noted.</desc>
+
+  <g fill="none" stroke="#000000" stroke-width="0.5" stroke-linecap="butt">
+
+    <g id="outline">
+      <rect x="0" y="0" width="60" height="90"/>
+    </g>
+
+    <g id="hinge-slits">
+    <path d="M0,7.5 H10.4"/>
+    <path d="M12.4,7.5 H22.8"/>
+    <path d="M24.8,7.5 H35.2"/>
+    <path d="M37.2,7.5 H47.6"/>
+    <path d="M49.6,7.5 H60"/>
+    <path d="M0,10.5 H4.2"/>
+    <path d="M6.2,10.5 H16.6"/>
+    <path d="M18.6,10.5 H29"/>
+    <path d="M31,10.5 H41.4"/>
+    <path d="M43.4,10.5 H53.8"/>
+    <path d="M55.8,10.5 H60"/>
+    <path d="M0,13.5 H10.4"/>
+    <path d="M12.4,13.5 H22.8"/>
+    <path d="M24.8,13.5 H35.2"/>
+    <path d="M37.2,13.5 H47.6"/>
+    <path d="M49.6,13.5 H60"/>
+    <path d="M0,16.5 H4.2"/>
+    <path d="M6.2,16.5 H16.6"/>
+    <path d="M18.6,16.5 H29"/>
+    <path d="M31,16.5 H41.4"/>
+    <path d="M43.4,16.5 H53.8"/>
+    <path d="M55.8,16.5 H60"/>
+    <path d="M0,19.5 H10.4"/>
+    <path d="M12.4,19.5 H22.8"/>
+    <path d="M24.8,19.5 H35.2"/>
+    <path d="M37.2,19.5 H47.6"/>
+    <path d="M49.6,19.5 H60"/>
+    <path d="M0,22.5 H4.2"/>
+    <path d="M6.2,22.5 H16.6"/>
+    <path d="M18.6,22.5 H29"/>
+    <path d="M31,22.5 H41.4"/>
+    <path d="M43.4,22.5 H53.8"/>
+    <path d="M55.8,22.5 H60"/>
+    <path d="M0,25.5 H10.4"/>
+    <path d="M12.4,25.5 H22.8"/>
+    <path d="M24.8,25.5 H35.2"/>
+    <path d="M37.2,25.5 H47.6"/>
+    <path d="M49.6,25.5 H60"/>
+    <path d="M0,28.5 H4.2"/>
+    <path d="M6.2,28.5 H16.6"/>
+    <path d="M18.6,28.5 H29"/>
+    <path d="M31,28.5 H41.4"/>
+    <path d="M43.4,28.5 H53.8"/>
+    <path d="M55.8,28.5 H60"/>
+    <path d="M0,31.5 H10.4"/>
+    <path d="M12.4,31.5 H22.8"/>
+    <path d="M24.8,31.5 H35.2"/>
+    <path d="M37.2,31.5 H47.6"/>
+    <path d="M49.6,31.5 H60"/>
+    <path d="M0,34.5 H4.2"/>
+    <path d="M6.2,34.5 H16.6"/>
+    <path d="M18.6,34.5 H29"/>
+    <path d="M31,34.5 H41.4"/>
+    <path d="M43.4,34.5 H53.8"/>
+    <path d="M55.8,34.5 H60"/>
+    <path d="M0,37.5 H10.4"/>
+    <path d="M12.4,37.5 H22.8"/>
+    <path d="M24.8,37.5 H35.2"/>
+    <path d="M37.2,37.5 H47.6"/>
+    <path d="M49.6,37.5 H60"/>
+    <path d="M0,40.5 H4.2"/>
+    <path d="M6.2,40.5 H16.6"/>
+    <path d="M18.6,40.5 H29"/>
+    <path d="M31,40.5 H41.4"/>
+    <path d="M43.4,40.5 H53.8"/>
+    <path d="M55.8,40.5 H60"/>
+    <path d="M0,43.5 H10.4"/>
+    <path d="M12.4,43.5 H22.8"/>
+    <path d="M24.8,43.5 H35.2"/>
+    <path d="M37.2,43.5 H47.6"/>
+    <path d="M49.6,43.5 H60"/>
+    <path d="M0,46.5 H4.2"/>
+    <path d="M6.2,46.5 H16.6"/>
+    <path d="M18.6,46.5 H29"/>
+    <path d="M31,46.5 H41.4"/>
+    <path d="M43.4,46.5 H53.8"/>
+    <path d="M55.8,46.5 H60"/>
+    <path d="M0,49.5 H10.4"/>
+    <path d="M12.4,49.5 H22.8"/>
+    <path d="M24.8,49.5 H35.2"/>
+    <path d="M37.2,49.5 H47.6"/>
+    <path d="M49.6,49.5 H60"/>
+    <path d="M0,52.5 H4.2"/>
+    <path d="M6.2,52.5 H16.6"/>
+    <path d="M18.6,52.5 H29"/>
+    <path d="M31,52.5 H41.4"/>
+    <path d="M43.4,52.5 H53.8"/>
+    <path d="M55.8,52.5 H60"/>
+    <path d="M0,55.5 H10.4"/>
+    <path d="M12.4,55.5 H22.8"/>
+    <path d="M24.8,55.5 H35.2"/>
+    <path d="M37.2,55.5 H47.6"/>
+    <path d="M49.6,55.5 H60"/>
+    <path d="M0,58.5 H4.2"/>
+    <path d="M6.2,58.5 H16.6"/>
+    <path d="M18.6,58.5 H29"/>
+    <path d="M31,58.5 H41.4"/>
+    <path d="M43.4,58.5 H53.8"/>
+    <path d="M55.8,58.5 H60"/>
+    <path d="M0,61.5 H10.4"/>
+    <path d="M12.4,61.5 H22.8"/>
+    <path d="M24.8,61.5 H35.2"/>
+    <path d="M37.2,61.5 H47.6"/>
+    <path d="M49.6,61.5 H60"/>
+    <path d="M0,64.5 H4.2"/>
+    <path d="M6.2,64.5 H16.6"/>
+    <path d="M18.6,64.5 H29"/>
+    <path d="M31,64.5 H41.4"/>
+    <path d="M43.4,64.5 H53.8"/>
+    <path d="M55.8,64.5 H60"/>
+    <path d="M0,67.5 H10.4"/>
+    <path d="M12.4,67.5 H22.8"/>
+    <path d="M24.8,67.5 H35.2"/>
+    <path d="M37.2,67.5 H47.6"/>
+    <path d="M49.6,67.5 H60"/>
+    <path d="M0,70.5 H4.2"/>
+    <path d="M6.2,70.5 H16.6"/>
+    <path d="M18.6,70.5 H29"/>
+    <path d="M31,70.5 H41.4"/>
+    <path d="M43.4,70.5 H53.8"/>
+    <path d="M55.8,70.5 H60"/>
+    <path d="M0,73.5 H10.4"/>
+    <path d="M12.4,73.5 H22.8"/>
+    <path d="M24.8,73.5 H35.2"/>
+    <path d="M37.2,73.5 H47.6"/>
+    <path d="M49.6,73.5 H60"/>
+    <path d="M0,76.5 H4.2"/>
+    <path d="M6.2,76.5 H16.6"/>
+    <path d="M18.6,76.5 H29"/>
+    <path d="M31,76.5 H41.4"/>
+    <path d="M43.4,76.5 H53.8"/>
+    <path d="M55.8,76.5 H60"/>
+    <path d="M0,79.5 H10.4"/>
+    <path d="M12.4,79.5 H22.8"/>
+    <path d="M24.8,79.5 H35.2"/>
+    <path d="M37.2,79.5 H47.6"/>
+    <path d="M49.6,79.5 H60"/>
+    <path d="M0,82.5 H4.2"/>
+    <path d="M6.2,82.5 H16.6"/>
+    <path d="M18.6,82.5 H29"/>
+    <path d="M31,82.5 H41.4"/>
+    <path d="M43.4,82.5 H53.8"/>
+    <path d="M55.8,82.5 H60"/>
+    </g>
+
+  </g>
+</svg>
