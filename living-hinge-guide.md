@@ -209,6 +209,7 @@ Browse those; cut the ones in `examples/`. A real cut file is a 0.02mm hairline 
 background at all, which most viewers show almost invisibly against a transparency
 checkerboard.
 
+<div class="tw">
 <table>
 <tr>
 <td align="center"><a href="examples/living-hinge-straight-50x200mm.svg"><img src="previews/living-hinge-straight-50x200mm.svg" alt="straight pattern: rows of parallel slits, offset row to row" width="60"></a></td>
@@ -231,6 +232,7 @@ checkerboard.
 <td align="center"><sub>crosshatch</sub></td>
 </tr>
 </table>
+</div>
 
 *Click any one to download its cut file.*
 
