@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="-30 -26 140 146"
-     width="1120" height="1168" role="img" aria-label="The panel convention: x runs across the width, y along the length. A solid end tab of the margin height sits at each end of the length, and between them the hinge field carries staggered rows of slits that run right out to both long edges.">
+     width="1120" height="1168" role="img" aria-label="The panel convention: x runs across the width, y along the length. A solid end tab of the margin height sits at each end of the length, and between them the hinge field carries staggered rows of cutouts that run right out to both long edges.">
   <title>Panel convention — width, length, margin, and the hinge field</title>
   <desc>Drawn by panel-convention.js. The slits are real output from
 living-hinge-generator.js for a 60 x 84mm straight panel with a 7mm margin, so the

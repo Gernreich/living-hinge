@@ -95,7 +95,7 @@ parts.push(txt(W / 2, L + 27, 'slits run ACROSS the width; the panel rolls ALONG
 
 const alt = 'The panel convention: x runs across the width, y along the length. A solid end ' +
   'tab of the margin height sits at each end of the length, and between them the hinge field ' +
-  'carries staggered rows of slits that run right out to both long edges.';
+  'carries staggered rows of cutouts that run right out to both long edges.';
 
 fs.writeFileSync(OUT, `<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="${x0} ${y0} ${w} ${h}"
