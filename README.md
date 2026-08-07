@@ -31,7 +31,7 @@ and bending are shown.
 ```
 ./living-hinge.js --list                          # patterns and their defaults
 ./living-hinge.js -p wave -w 80 -l 300            # 80 × 300 mm wave hinge
-./living-hinge.js -p chevron -w 80 -l 300 -m 10   # with a 10 mm margin
+./living-hinge.js -p chevron -w 80 -l 300 --margin 10   # with a 10 mm margin
 ./living-hinge.js --help                          # every option
 ```
 
