@@ -72,7 +72,7 @@ pre,.tw{break-inside:avoid}h1{break-after:avoid}}
 <nav><b>Contents</b><a class="l1" href="#living-hinge-generator--operating-guide">Living Hinge Generator — Operating Guide</a><a class="l2" href="#get-the-files">Get the files</a><a class="l2" href="#1-what-it-actually-does">1. What it actually does</a><a class="l2" href="#2-quick-start">2. Quick start</a><a class="l2" href="#3-complete-option-reference">3. Complete option reference</a><a class="l2" href="#4-suggested-starting-numbers">4. Suggested starting numbers</a><a class="l2" href="#5-the-eight-patterns">5. The eight patterns</a><a class="l2" href="#6---side-and---cell-are-targets-not-guarantees">6. --side and --cell are targets, not guarantees</a><a class="l2" href="#7-end-tabs--and-what-happens-when-you-minimise-them">7. End tabs — and what happens when you minimise them</a><a class="l2" href="#8-sizing-the-hinge-for-a-bend-radius">8. Sizing the hinge for a bend radius</a><a class="l2" href="#9-kerf">9. Kerf</a><a class="l2" href="#10-finding-your-real-numbers">10. Finding your real numbers</a><a class="l2" href="#11-output-format">11. Output format</a><a class="l2" href="#12-when-it-refuses">12. When it refuses</a><a class="l2" href="#13-scripting">13. Scripting</a><a class="l2" href="#14-gotchas">14. Gotchas</a><a class="l2" href="#15-known-limitations">15. Known limitations</a></nav>
 <main>
 <h1 id="living-hinge-generator--operating-guide">Living Hinge Generator — Operating Guide</h1>
-<p>Parametric lattice-hinge ("living hinge") SVG generator for laser cutting. Two files in <code>~/LaserMadeMusic/GIT/living-hinge/</code>:</p>
+<p>Parametric lattice-hinge ("living hinge") SVG generator for laser cutting. Two files, which must sit in the same directory:</p>
 <div class='tw'><table><thead><tr><th>File</th><th>Role</th></tr></thead><tbody><tr><td><code>living-hinge-generator.js</code></td><td>Library. <code>require()</code> it, call <code>generate({...})</code> → <code>{svg, stats, options}</code></td></tr><tr><td><code>living-hinge.js</code></td><td>CLI front end (executable, <code>#!/usr/bin/env node</code>)</td></tr></tbody></table></div>
 <p>Requires Node ≥ 10.12. No dependencies, no install step.</p>
 <p>&gt; <strong>The tuning numbers in this guide are starting points, not tested values.</strong> They are &gt; derived from geometry, not from cut material. Nothing in this toolchain has been &gt; validated against real ply or acrylic. Cut a coupon (see <a href="#10-finding-your-real-numbers">Finding your real &gt; numbers</a>) before committing to a full panel.</p>
@@ -104,7 +104,7 @@ pre,.tw{break-inside:avoid}h1{break-after:avoid}}
 <p><strong>The rule everything else serves:</strong> slits must reach <code>x=0</code> and <code>x=width</code>. An uncut rail down either long edge stiffens the entire panel and it will not flex. The generator enforces this — it is why <code>--side</code> and <code>--cell</code> get resized (§6) and why the crosshatch edge cuts are exempt from <code>--minSliver</code>.</p>
 <hr>
 <h2 id="2-quick-start">2. Quick start</h2>
-<pre><code>cd ~/LaserMadeMusic/GIT/living-hinge
+<pre><code>cd living-hinge          # wherever you cloned or unzipped it
 
 ./living-hinge.js                                  # 50 × 200 mm straight, to ./
 ./living-hinge.js -p wave -w 80 -l 300             # wave pattern, 80 × 300 mm
@@ -147,6 +147,17 @@ var r = gen.generate({ pattern: 'wave', width: 80, height: 300, bridge: 1.5 });
 <h2 id="5-the-eight-patterns">5. The eight patterns</h2>
 <p>Each is committed cut-ready in <strong><code>examples/</code></strong> at 50 × 200 mm — the size every figure below is quoted at — so the numbers in each section describe a file you can open. All eight span the full panel width, <code>x = 0</code> to <code>x = 50</code>, which is the rule §1 says everything else serves.</p>
 <p><code>previews/</code> holds a display rendering of each, with the cut stroke thickened. Browse those; cut the ones in <code>examples/</code>. A real cut file is a 0.02mm hairline, which most viewers show almost invisibly against a transparency checkerboard.</p>
+<p>
+<a href="examples/living-hinge-straight-50x200mm.svg"><img src="previews/living-hinge-straight-50x200mm.svg" alt="straight pattern: rows of parallel slits, offset row to row" width="90"></a><br><sub>straight</sub>
+<a href="examples/living-hinge-dogbone-50x200mm.svg"><img src="previews/living-hinge-dogbone-50x200mm.svg" alt="dogbone pattern: straight slits with a round relief hole at each end" width="90"></a><br><sub>dogbone</sub>
+<a href="examples/living-hinge-wave-50x200mm.svg"><img src="previews/living-hinge-wave-50x200mm.svg" alt="wave pattern: sinusoidal slits" width="90"></a><br><sub>wave</sub>
+<a href="examples/living-hinge-chevron-50x200mm.svg"><img src="previews/living-hinge-chevron-50x200mm.svg" alt="chevron pattern: zigzag slits" width="90"></a><br><sub>chevron</sub>
+<a href="examples/living-hinge-torsional-50x200mm.svg"><img src="previews/living-hinge-torsional-50x200mm.svg" alt="torsional pattern: I-cuts, straight slits with perpendicular end caps" width="90"></a><br><sub>torsional</sub>
+<a href="examples/living-hinge-honeycomb-50x200mm.svg"><img src="previews/living-hinge-honeycomb-50x200mm.svg" alt="honeycomb pattern: a hexagonal lattice, bends on both axes" width="90"></a><br><sub>honeycomb</sub>
+<a href="examples/living-hinge-auxetic-50x200mm.svg"><img src="previews/living-hinge-auxetic-50x200mm.svg" alt="auxetic pattern: rotating squares, bends on both axes" width="90"></a><br><sub>auxetic</sub>
+<a href="examples/living-hinge-crosshatch-50x200mm.svg"><img src="previews/living-hinge-crosshatch-50x200mm.svg" alt="crosshatch pattern: alternating short slits, bends on both axes" width="90"></a><br><sub>crosshatch</sub>
+</p>
+<p><em>Click any one to download its cut file.</em></p>
 <p>Stats below are real output at the default <strong>50 × 200 mm, margin 6</strong>.</p>
 <h3 id="straight--the-default-start-here">straight — the default; start here</h3>
 <p>Plain staggered slits. Fewest cuts, fastest to cut, strongest for a given bridge.</p>
@@ -226,7 +237,7 @@ actual ligament  ≈  bridge − 2 × hole − kerf            (dogbone)</code><
 <hr>
 <h2 id="10-finding-your-real-numbers">10. Finding your real numbers</h2>
 <p>The defaults are geometry, not experience. One afternoon of coupons replaces all the guessing in §4.</p>
-<pre><code>cd ~/LaserMadeMusic/GIT/living-hinge
+<pre><code>cd living-hinge          # wherever you cloned or unzipped it
 mkdir -p coupons
 for b in 1.0 1.25 1.5 1.75 2.0 2.5; do
   ./living-hinge.js -w 40 -l 120 --bridge $b --outdir ./coupons

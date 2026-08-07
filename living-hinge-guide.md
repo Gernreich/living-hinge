@@ -1,7 +1,7 @@
 # Living Hinge Generator — Operating Guide
 
 Parametric lattice-hinge ("living hinge") SVG generator for laser cutting.
-Two files in `~/LaserMadeMusic/GIT/living-hinge/`:
+Two files, which must sit in the same directory:
 
 | File | Role |
 |---|---|
@@ -73,7 +73,7 @@ edge cuts are exempt from `--minSliver`.
 ## 2. Quick start
 
 ```bash
-cd ~/LaserMadeMusic/GIT/living-hinge
+cd living-hinge          # wherever you cloned or unzipped it
 
 ./living-hinge.js                                  # 50 × 200 mm straight, to ./
 ./living-hinge.js -p wave -w 80 -l 300             # wave pattern, 80 × 300 mm
@@ -206,6 +206,19 @@ everything else serves.
 `previews/` holds a display rendering of each, with the cut stroke thickened. Browse
 those; cut the ones in `examples/`. A real cut file is a 0.02mm hairline, which most
 viewers show almost invisibly against a transparency checkerboard.
+
+<p>
+<a href="examples/living-hinge-straight-50x200mm.svg"><img src="previews/living-hinge-straight-50x200mm.svg" alt="straight pattern: rows of parallel slits, offset row to row" width="90"></a><br><sub>straight</sub>
+<a href="examples/living-hinge-dogbone-50x200mm.svg"><img src="previews/living-hinge-dogbone-50x200mm.svg" alt="dogbone pattern: straight slits with a round relief hole at each end" width="90"></a><br><sub>dogbone</sub>
+<a href="examples/living-hinge-wave-50x200mm.svg"><img src="previews/living-hinge-wave-50x200mm.svg" alt="wave pattern: sinusoidal slits" width="90"></a><br><sub>wave</sub>
+<a href="examples/living-hinge-chevron-50x200mm.svg"><img src="previews/living-hinge-chevron-50x200mm.svg" alt="chevron pattern: zigzag slits" width="90"></a><br><sub>chevron</sub>
+<a href="examples/living-hinge-torsional-50x200mm.svg"><img src="previews/living-hinge-torsional-50x200mm.svg" alt="torsional pattern: I-cuts, straight slits with perpendicular end caps" width="90"></a><br><sub>torsional</sub>
+<a href="examples/living-hinge-honeycomb-50x200mm.svg"><img src="previews/living-hinge-honeycomb-50x200mm.svg" alt="honeycomb pattern: a hexagonal lattice, bends on both axes" width="90"></a><br><sub>honeycomb</sub>
+<a href="examples/living-hinge-auxetic-50x200mm.svg"><img src="previews/living-hinge-auxetic-50x200mm.svg" alt="auxetic pattern: rotating squares, bends on both axes" width="90"></a><br><sub>auxetic</sub>
+<a href="examples/living-hinge-crosshatch-50x200mm.svg"><img src="previews/living-hinge-crosshatch-50x200mm.svg" alt="crosshatch pattern: alternating short slits, bends on both axes" width="90"></a><br><sub>crosshatch</sub>
+</p>
+
+*Click any one to download its cut file.*
 
 Stats below are real output at the default **50 × 200 mm, margin 6**.
 
@@ -472,7 +485,7 @@ The defaults are geometry, not experience. One afternoon of coupons replaces all
 guessing in §4.
 
 ```bash
-cd ~/LaserMadeMusic/GIT/living-hinge
+cd living-hinge          # wherever you cloned or unzipped it
 mkdir -p coupons
 for b in 1.0 1.25 1.5 1.75 2.0 2.5; do
   ./living-hinge.js -w 40 -l 120 --bridge $b --outdir ./coupons
