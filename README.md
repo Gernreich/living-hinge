@@ -24,6 +24,8 @@ a browser shows almost invisibly against a transparency checkerboard.*
 Built for **[LaserMadeMusic](https://www.youtube.com/@LaserMadeMusic)**, where the cutting
 and bending are shown.
 
+**[Download everything as a ZIP](https://github.com/Gernreich/living-hinge/archive/refs/heads/main.zip)** — the CLI, the library, the guide, all eight examples and the coupons.
+
 ## Quick start
 
 ```
