@@ -47,6 +47,9 @@ border:1px solid color-mix(in srgb,var(--line) 70%,transparent)}
 pre{background:var(--codebg);border:1px solid var(--line);border-radius:9px;
 padding:14px 16px;overflow-x:auto;margin:1.1em 0}
 pre code{background:none;border:0;padding:0;font-size:12.8px;line-height:1.62;white-space:pre}
+blockquote{margin:1.15em 0;padding:.7em 1.1em;border-left:4px solid var(--accent);
+background:var(--codebg);border-radius:0 7px 7px 0}
+blockquote p{margin:0}
 .tw{overflow-x:auto;margin:1.15em 0;border:1px solid var(--line);border-radius:9px;
 background:var(--card)}
 table{border-collapse:collapse;width:100%;font-size:14px}
@@ -75,7 +78,7 @@ pre,.tw{break-inside:avoid}h1{break-after:avoid}}
 <p>Parametric lattice-hinge ("living hinge") SVG generator for laser cutting. Two files, which must sit in the same directory:</p>
 <div class='tw'><table><thead><tr><th>File</th><th>Role</th></tr></thead><tbody><tr><td><code>living-hinge-generator.js</code></td><td>Library. <code>require()</code> it, call <code>generate({...})</code> → <code>{svg, stats, options}</code></td></tr><tr><td><code>living-hinge.js</code></td><td>CLI front end (executable, <code>#!/usr/bin/env node</code>)</td></tr></tbody></table></div>
 <p>Requires Node ≥ 10.12. No dependencies, no install step.</p>
-<p>&gt; <strong>The tuning numbers in this guide are starting points, not tested values.</strong> They are &gt; derived from geometry, not from cut material. Nothing in this toolchain has been &gt; validated against real ply or acrylic. Cut a coupon (see <a href="#10-finding-your-real-numbers">Finding your real &gt; numbers</a>) before committing to a full panel.</p>
+<blockquote><p><strong>The tuning numbers in this guide are starting points, not tested values.</strong> They are derived from geometry, not from cut material. Nothing in this toolchain has been validated against real ply or acrylic. Cut a coupon (see <a href="#10-finding-your-real-numbers">Finding your real numbers</a>) before committing to a full panel.</p></blockquote>
 <hr>
 <h2 id="get-the-files">Get the files</h2>
 <ul><li><strong><a href="https://github.com/Gernreich/living-hinge/archive/refs/heads/main.zip">Everything as a ZIP</a></strong> — the CLI, the library, this guide, all eight cut-ready examples and the test coupons.</li><li><strong><a href="https://github.com/Gernreich/living-hinge">Repository</a></strong> — the code, if you want to change a pattern or read how it works.</li></ul>
