@@ -17,6 +17,18 @@ Requires Node ≥ 10.12. No dependencies, no install step.
 
 ---
 
+## Get the files
+
+- **[Everything as a ZIP](https://github.com/Gernreich/living-hinge/archive/refs/heads/main.zip)**
+  — the CLI, the library, this guide, all eight cut-ready examples and the test coupons.
+- **[Repository](https://github.com/Gernreich/living-hinge)** — the code, if you want to
+  change a pattern or read how it works.
+
+Released under CC0 1.0 — do what you like with them, no attribution needed. Built for
+**[LaserMadeMusic](https://www.youtube.com/@LaserMadeMusic)**.
+
+---
+
 ## 1. What it actually does
 
 It emits an SVG containing a rectangular panel outline plus a field of cuts that let a
