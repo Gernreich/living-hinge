@@ -30,14 +30,16 @@ The six individual files are also here if you'd rather cut them separately or re
 
 ## Coupons
 
+All six share the stem `living-hinge-straight-40x120mm`:
+
 | # | Bridge (nominal) | Slit | Ligament after 0.15mm kerf | File |
 |---|---|---|---|---|
-| 1 | 1.00mm | 12.6667 | ~0.85mm | `...-bridge1.svg` |
-| 2 | 1.25mm | 12.5 | ~1.10mm | `...-bridge1.25.svg` |
-| 3 | 1.50mm | 12.3333 | ~1.35mm | `...-bridge1.5.svg` |
-| 4 | 1.75mm | 12.1667 | ~1.60mm | `...-bridge1.75.svg` |
-| 5 | 2.00mm | 12.0 | ~1.85mm | `...-40x120mm.svg` *(the default — plain name)* |
-| 6 | 2.50mm | 11.6667 | ~2.35mm | `...-bridge2.5.svg` |
+| 1 | 1.00mm | 12.6667 | ~0.85mm | `living-hinge-straight-40x120mm-bridge1.svg` |
+| 2 | 1.25mm | 12.5 | ~1.10mm | `living-hinge-straight-40x120mm-bridge1.25.svg` |
+| 3 | 1.50mm | 12.3333 | ~1.35mm | `living-hinge-straight-40x120mm-bridge1.5.svg` |
+| 4 | 1.75mm | 12.1667 | ~1.60mm | `living-hinge-straight-40x120mm-bridge1.75.svg` |
+| 5 | 2.00mm | 12.0 | ~1.85mm | `living-hinge-straight-40x120mm.svg` *(the default — no bridge suffix)* |
+| 6 | 2.50mm | 11.6667 | ~2.35mm | `living-hinge-straight-40x120mm-bridge2.5.svg` |
 
 `--bridge` is a **centreline** value. The beam removes material on both sides, so the real
 ligament is roughly `bridge − kerf`. Measure your kerf once (cut a 20mm square, measure it,
