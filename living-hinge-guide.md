@@ -41,23 +41,10 @@ written out.
 
 ### Panel convention
 
-```
-        x = 0                                  x = width
-          |                                        |
-  y = 0   +----------------------------------------+  --.
-          |            solid end tab               |    | margin
-          +----------------------------------------+  --'
-          |  ====  ====  ====  ====  ====  ====    |
-          |    ====  ====  ====  ====  ====        |   hinge field
-          |  ====  ====  ====  ====  ====  ====    |   (rows of slits)
-          |    ====  ====  ====  ====  ====        |
-          +----------------------------------------+  --.
-          |            solid end tab               |    | margin
-  y=length+----------------------------------------+  --'
+![The panel convention: x across the width, y along the length, a solid end tab of the margin height at each end, and between them the hinge field of staggered slit rows running out to both long edges](panel-convention.svg)
 
-          <----------- width -------------->
-          slits run ACROSS the width; the panel rolls ALONG the length
-```
+*The slits are real generator output, not drawn by hand — see [`panel-convention.js`](panel-convention.js). Proportions are illustrative; the shipped examples are 50 × 200mm.*
+
 
 - **`--width`** — the span the slits run across. The bend axis is parallel to this.
 - **`--length`** — the direction the panel rolls up. More length = more rows = gentler curve.
