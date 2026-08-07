@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="-30 -26 136 146"
-     width="1088" height="1168" role="img" aria-label="The panel convention: x runs across the width, y along the length. A solid end tab of the margin height sits at each end of the length, and between them the hinge field carries staggered rows of slits that run right out to both long edges.">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-30 -26 140 146"
+     width="1120" height="1168" role="img" aria-label="The panel convention: x runs across the width, y along the length. A solid end tab of the margin height sits at each end of the length, and between them the hinge field carries staggered rows of slits that run right out to both long edges.">
   <title>Panel convention — width, length, margin, and the hinge field</title>
   <desc>Drawn by panel-convention.js. The slits are real output from
 living-hinge-generator.js for a 60 x 84mm straight panel with a 7mm margin, so the
 figure matches what the tool makes. Proportions are illustrative; the shipped examples
 are 50 x 200mm.</desc>
-  <rect x="-30" y="-26" width="136" height="146" fill="#faf7f0"/>
+  <rect x="-30" y="-26" width="140" height="146" fill="#faf7f0"/>
   <g font-family="ui-sans-serif,system-ui,-apple-system,Helvetica,Arial,sans-serif">
     <rect x="0" y="0" width="60" height="84" fill="#c9a227"/>
     <rect x="0" y="0" width="60" height="7" fill="#ab8a1e"/>
@@ -24,7 +24,7 @@ are 50 x 200mm.</desc>
     <path d="M67 0h3v7h-3" fill="none" stroke="#8a8f96" stroke-width="0.5"/><text x="73" y="4.6" font-size="3.1" fill="#5b6067" font-family="ui-monospace,SFMono-Regular,Menlo,monospace">margin</text>
     <path d="M67 77h3v7h-3" fill="none" stroke="#8a8f96" stroke-width="0.5"/><text x="73" y="81.6" font-size="3.1" fill="#5b6067" font-family="ui-monospace,SFMono-Regular,Menlo,monospace">margin</text>
     <path d="M67 7h3v70h-3" fill="none" stroke="#8a8f96" stroke-width="0.5"/><text x="73" y="43.1" font-size="3.1" fill="#5b6067" font-family="ui-monospace,SFMono-Regular,Menlo,monospace">hinge field</text>
-    <text x="73" y="47.285000000000004" font-size="3.1" fill="#5b6067" font-family="ui-monospace,SFMono-Regular,Menlo,monospace">(rows of slits)</text>
+    <text x="73" y="47.285000000000004" font-size="3.1" fill="#5b6067" font-family="ui-monospace,SFMono-Regular,Menlo,monospace">(rows of cutouts)</text>
     <line x1="0" y1="99" x2="60" y2="99" stroke="#8a8f96" stroke-width="0.5"/>
     <path d="M0 99l3.4 -1.9v3.8z M60 99l-3.4 -1.9v3.8z" fill="#8a8f96"/>
     <rect x="22" y="96.6" width="16" height="4.8" fill="#faf7f0"/>

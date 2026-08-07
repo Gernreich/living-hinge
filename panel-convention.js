@@ -35,9 +35,9 @@ const INK = '#1a1c1e', MUT = '#5b6067', RULE = '#8a8f96';
 
 // ---------------------------------------------------------------- frame
 // Frame sized to what the labels actually need: "y = length" reaches ~25 units
-// left of the panel, "(rows of slits)" ~41 to its right. Generous padding just
+// left of the panel, "(rows of cutouts)" ~45 to its right. Generous padding just
 // makes the figure mostly empty once the page scales it to the column width.
-const padL = 30, padR = 46, padT = 26, padB = 36;
+const padL = 30, padR = 50, padT = 26, padB = 36;
 const x0 = -padL, y0 = -padT, w = W + padL + padR, h = L + padT + padB;
 const S = 3.1;                                     // label size in panel units
 
@@ -82,7 +82,7 @@ const brace = (yA, yB, label) => {
 parts.push(brace(0, M, 'margin'));
 parts.push(brace(L - M, L, 'margin'));
 parts.push(brace(M, L - M, 'hinge field'));
-parts.push(txt(W + 13, L / 2 + 1.1 + S * 1.35, '(rows of slits)', { fill: MUT, mono: 1 }));
+parts.push(txt(W + 13, L / 2 + 1.1 + S * 1.35, '(rows of cutouts)', { fill: MUT, mono: 1 }));
 
 // width arrow, below
 const ay = L + 15;
