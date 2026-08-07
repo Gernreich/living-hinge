@@ -112,8 +112,8 @@ pre,.tw{break-inside:avoid}h1{break-after:avoid}}
 <h2 id="2-quick-start">2. Quick start</h2>
 <pre><code>cd living-hinge          # wherever you cloned or unzipped it
 
-./living-hinge.js                                  # 50 × 200 mm straight, to ./
-./living-hinge.js -p wave -w 80 -l 300             # wave pattern, 80 × 300 mm
+./living-hinge.js                                  # 50 × 200mm straight, to ./
+./living-hinge.js -p wave -w 80 -l 300             # wave pattern, 80 × 300mm
 ./living-hinge.js -p dogbone -w 2in -l 10in        # inch input, mm output
 ./living-hinge.js -p chevron -w 3in --units in     # inch input AND inch output
 ./living-hinge.js --all --outdir ./hinges          # all 8 patterns at one size
@@ -223,10 +223,10 @@ var r = gen.generate({ pattern: 'wave', width: 80, height: 300, bridge: 1.5 });
 <hr>
 <h2 id="6---side-and---cell-are-targets-not-guarantees">6. <code>--side</code> and <code>--cell</code> are targets, not guarantees</h2>
 <p>The three lattice patterns resize their cell so the tiling divides the panel width exactly, putting a cut on both long edges. Without it you get an uncut rail up to ~1.2mm wide down one side, and the panel will not flex.</p>
-<pre><code>width 30 mm   --side 5 → 4.9487   (1.0% off)     --cell 6.25 → 6.00 (4.0% off)
-width 50 mm   --side 5 → 4.8113   (3.8% off)     --cell 6.25 → 6.25 (exact)
-width 75 mm   --side 5 → 5.0943   (1.9% off)     --cell 6.25 → 6.25 (exact)
-width 100 mm  --side 5 → 5.0204   (0.4% off)     --cell 6.25 → 6.25 (exact)</code></pre>
+<pre><code>width 30mm   --side 5 → 4.9487   (1.0% off)     --cell 6.25 → 6.00 (4.0% off)
+width 50mm   --side 5 → 4.8113   (3.8% off)     --cell 6.25 → 6.25 (exact)
+width 75mm   --side 5 → 5.0943   (1.9% off)     --cell 6.25 → 6.25 (exact)
+width 100mm  --side 5 → 5.0204   (0.4% off)     --cell 6.25 → 6.25 (exact)</code></pre>
 <p>Formulas: auxetic/crosshatch use <code>cell = width / round(width / cell)</code>; honeycomb uses <code>side = 2 × width / (√3 × m)</code>.</p>
 <p>Deviation is typically under 4%. The delivered value appears in the stats line, the SVG <code>&lt;desc&gt;</code>, <strong>and the filename</strong> — so a file is always named for the geometry it contains. If you need an exact cell size, pick a width that is a whole multiple of it.</p>
 <hr>
@@ -284,7 +284,7 @@ living-hinge-straight-40x120mm-bridge2.5.svg</code></pre>
 &lt;svg xmlns="http://www.w3.org/2000/svg" version="1.1"
      width="50mm" height="200mm" viewBox="0 0 50 200"&gt;
   &lt;title&gt;Living hinge - straight - 50mm x 200mm&lt;/title&gt;
-  &lt;desc&gt;1 user unit = 1 mm. Panel 50mm x 200mm, solid end tabs 6mm. Pattern: straight; ...&lt;/desc&gt;
+  &lt;desc&gt;1 user unit = 1mm. Panel 50mm x 200mm, solid end tabs 6mm. Pattern: straight; ...&lt;/desc&gt;
   &lt;g fill="none" stroke="#000000" stroke-width="0.02" stroke-linecap="butt"&gt;
     &lt;g id="outline"&gt;&lt;rect x="0" y="0" width="50" height="200"/&gt;&lt;/g&gt;
     &lt;g id="hinge-slits"&gt; ... &lt;/g&gt;

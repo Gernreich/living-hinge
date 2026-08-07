@@ -495,7 +495,7 @@ function generate(opts) {
   var vbW = round4(o.width * scale), vbH = round4(o.height * scale);
   var dimW = o.units === 'in' ? round4(o.width / 25.4) + 'in' : round4(o.width) + 'mm';
   var dimH = o.units === 'in' ? round4(o.height / 25.4) + 'in' : round4(o.height) + 'mm';
-  var unitNote = o.units === 'in' ? '1 user unit = 1/96 in' : '1 user unit = 1 mm';
+  var unitNote = o.units === 'in' ? '1 user unit = 1/96 in' : '1 user unit = 1mm';
 
   var params = Object.keys(stats).map(function (key) { return key + ' ' + stats[key]; }).join(', ');
   var desc = unitNote + '. Panel ' + dimW + ' x ' + dimH + ', solid end tabs ' + o.margin + 'mm. ' +

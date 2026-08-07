@@ -75,8 +75,8 @@ edge cuts are exempt from `--minSliver`.
 ```bash
 cd living-hinge          # wherever you cloned or unzipped it
 
-./living-hinge.js                                  # 50 × 200 mm straight, to ./
-./living-hinge.js -p wave -w 80 -l 300             # wave pattern, 80 × 300 mm
+./living-hinge.js                                  # 50 × 200mm straight, to ./
+./living-hinge.js -p wave -w 80 -l 300             # wave pattern, 80 × 300mm
 ./living-hinge.js -p dogbone -w 2in -l 10in        # inch input, mm output
 ./living-hinge.js -p chevron -w 3in --units in     # inch input AND inch output
 ./living-hinge.js --all --outdir ./hinges          # all 8 patterns at one size
@@ -373,10 +373,10 @@ putting a cut on both long edges. Without it you get an uncut rail up to ~1.2mm 
 one side, and the panel will not flex.
 
 ```
-width 30 mm   --side 5 → 4.9487   (1.0% off)     --cell 6.25 → 6.00 (4.0% off)
-width 50 mm   --side 5 → 4.8113   (3.8% off)     --cell 6.25 → 6.25 (exact)
-width 75 mm   --side 5 → 5.0943   (1.9% off)     --cell 6.25 → 6.25 (exact)
-width 100 mm  --side 5 → 5.0204   (0.4% off)     --cell 6.25 → 6.25 (exact)
+width 30mm   --side 5 → 4.9487   (1.0% off)     --cell 6.25 → 6.00 (4.0% off)
+width 50mm   --side 5 → 4.8113   (3.8% off)     --cell 6.25 → 6.25 (exact)
+width 75mm   --side 5 → 5.0943   (1.9% off)     --cell 6.25 → 6.25 (exact)
+width 100mm  --side 5 → 5.0204   (0.4% off)     --cell 6.25 → 6.25 (exact)
 ```
 
 Formulas: auxetic/crosshatch use `cell = width / round(width / cell)`; honeycomb uses
@@ -554,7 +554,7 @@ estimates.
 <svg xmlns="http://www.w3.org/2000/svg" version="1.1"
      width="50mm" height="200mm" viewBox="0 0 50 200">
   <title>Living hinge - straight - 50mm x 200mm</title>
-  <desc>1 user unit = 1 mm. Panel 50mm x 200mm, solid end tabs 6mm. Pattern: straight; ...</desc>
+  <desc>1 user unit = 1mm. Panel 50mm x 200mm, solid end tabs 6mm. Pattern: straight; ...</desc>
   <g fill="none" stroke="#000000" stroke-width="0.02" stroke-linecap="butt">
     <g id="outline"><rect x="0" y="0" width="50" height="200"/></g>
     <g id="hinge-slits"> ... </g>

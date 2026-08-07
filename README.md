@@ -1,7 +1,7 @@
 # Living Hinge Generator
 
 Parametric lattice-hinge ("living hinge") SVG generator for laser cutting. Output is
-millimetre-true — `1 user unit = 1 mm` with a physical `width`/`height` — so it prints
+millimetre-true — `1 user unit = 1mm` with a physical `width`/`height` — so it prints
 and cuts at real size.
 
 <table>
@@ -48,8 +48,8 @@ and bending are shown.
 
 ```
 ./living-hinge.js --list                          # patterns and their defaults
-./living-hinge.js -p wave -w 80 -l 300            # 80 × 300 mm wave hinge
-./living-hinge.js -p chevron -w 80 -l 300 --margin 10   # with a 10 mm margin
+./living-hinge.js -p wave -w 80 -l 300            # 80 × 300mm wave hinge
+./living-hinge.js -p chevron -w 80 -l 300 --margin 10   # with a 10mm margin
 ./living-hinge.js --help                          # every option
 ```
 
