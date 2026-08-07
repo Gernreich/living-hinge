@@ -31,7 +31,7 @@ and cuts at real size.
 </tr>
 </table>
 
-*All eight patterns at 50 × 200 mm. Click one to download the cut file. The pictures are
+*All eight patterns at 50 × 200mm. Click one to download the cut file. The pictures are
 display renderings — **gold is the panel that stays, cream the slits the laser removes** —
 with the stroke thickened and painted onto the panel. A real cut file draws a hairline on
 nothing at all, which a browser shows almost invisibly against a transparency
@@ -53,7 +53,7 @@ and bending are shown.
 ./living-hinge.js --help                          # every option
 ```
 
-Every pattern is committed cut-ready in [`examples/`](examples) at 50 × 200 mm, so you can
+Every pattern is committed cut-ready in [`examples/`](examples) at 50 × 200mm, so you can
 cut one without running anything. Those are the files the guide's per-pattern figures
 describe.
 
@@ -82,7 +82,7 @@ are targets rather than guarantees, and the report tells you what they became.
 reasoned, not tested. Bridge width in particular is the parameter that decides whether
 a hinge flexes or snaps, and the right value depends on your stock and your kerf. The
 `coupons/` directory holds a bridge sweep for exactly that purpose — six otherwise
-identical 40 × 120 mm coupons varying only `--bridge`, so you can cut one sheet and
+identical 40 × 120mm coupons varying only `--bridge`, so you can cut one sheet and
 find out.
 
 ## Files
@@ -93,7 +93,7 @@ find out.
 | `living-hinge-generator.js` | the geometry library it calls; must sit beside the CLI |
 | `living-hinge-guide.md` · `.html` | operating guide; the markdown is the source |
 | `NOTES.md` | how to reach this generator from a later session |
-| `examples/` | one cut-ready file per pattern, all eight, at 50 × 200 mm |
+| `examples/` | one cut-ready file per pattern, all eight, at 50 × 200mm |
 | `coupons/` | bridge-sweep test coupons and cut instructions |
 | `index.html` | redirect that serves the guide on GitHub Pages |
 | `previews/` | display renderings of every pattern — **not** cut files |

@@ -175,10 +175,10 @@ exhausting memory. You will only ever touch them for a genuinely enormous panel.
 
 | Material | `--bridge` | `--pitch` | `--targetSlit` | Notes |
 |---|---|---|---|---|
-| 3 mm ply | 1.5 – 2.0 | 3.0 | 12 | The shipped defaults sit at the stiff/strong end |
-| 3 mm acrylic | 2.0 – 2.5 | 3.0 – 3.5 | 12 | Brittle. Go wider on the bridge, expect fewer bend cycles |
-| 1.5 mm ply / card | 1.0 – 1.5 | 2.0 – 2.5 | 8 – 10 | Thinner stock tolerates a narrower ligament |
-| 6 mm ply | 2.5 – 3.5 | 4.0 – 5.0 | 15 – 20 | Thick stock needs a long ligament to bend at all |
+| 3mm ply | 1.5 – 2.0 | 3.0 | 12 | The shipped defaults sit at the stiff/strong end |
+| 3mm acrylic | 2.0 – 2.5 | 3.0 – 3.5 | 12 | Brittle. Go wider on the bridge, expect fewer bend cycles |
+| 1.5mm ply / card | 1.0 – 1.5 | 2.0 – 2.5 | 8 – 10 | Thinner stock tolerates a narrower ligament |
+| 6mm ply | 2.5 – 3.5 | 4.0 – 5.0 | 15 – 20 | Thick stock needs a long ligament to bend at all |
 
 The two knobs that matter most:
 
@@ -198,7 +198,7 @@ different width. If you pass both, `--segments` wins and you get a warning.
 
 ## 5. The eight patterns
 
-Each is committed cut-ready in **`examples/`** at 50 × 200 mm — the size every figure
+Each is committed cut-ready in **`examples/`** at 50 × 200mm — the size every figure
 below is quoted at — so the numbers in each section describe a file you can open. All
 eight span the full panel width, `x = 0` to `x = 50`, which is the rule §1 says
 everything else serves.
@@ -240,7 +240,7 @@ checkerboard.
 
 *Click any one to download its cut file.*
 
-Stats below are real output at the default **50 × 200 mm, margin 6**.
+Stats below are real output at the default **50 × 200mm, margin 6**.
 
 ### straight — the default; start here
 
@@ -255,7 +255,7 @@ Plain staggered slits. Fewest cuts, fastest to cut, strongest for a given bridge
 `slit=11 bridge=2 pitch=3 rows=62 segments=4` → **279 cuts, 9.0 KB**
 
 - **Use when:** single-axis bend, and you have no reason to use anything else.
-- **Optimal-ish:** `--bridge 1.5 --pitch 3` for 3 mm ply. Drop pitch to 2.5 for a tighter curve.
+- **Optimal-ish:** `--bridge 1.5 --pitch 3` for 3mm ply. Drop pitch to 2.5 for a tighter curve.
 - Stress concentrates at the slit ends. If it cracks there, switch to `dogbone`.
 
 ### dogbone — straight, with the stress risers removed
@@ -334,7 +334,7 @@ expands laterally when stretched, so it forms domes rather than cylinders.
 `cell=6.25 gap=1.5 slit=4.75` → **518 cuts, 20.0 KB**
 
 - **Use when:** you need a dome/saddle, not a roll.
-- **`--cell` is a target** (fitted, §6). At 50 mm wide, 6.25 divides evenly so you get
+- **`--cell` is a target** (fitted, §6). At 50mm wide, 6.25 divides evenly so you get
   exactly what you asked for.
 - **Optimal-ish:** `--cell 6.25 --gap 1.5`. Smaller cells = finer, more compliant, more cuts.
 
@@ -369,7 +369,7 @@ and the simplest to reason about.
 ## 6. `--side` and `--cell` are targets, not guarantees
 
 The three lattice patterns resize their cell so the tiling divides the panel width exactly,
-putting a cut on both long edges. Without it you get an uncut rail up to ~1.2 mm wide down
+putting a cut on both long edges. Without it you get an uncut rail up to ~1.2mm wide down
 one side, and the panel will not flex.
 
 ```
@@ -404,28 +404,28 @@ screw, or slot into the rest of the assembly. Cuts never enter it.
 
 **You never get a zero end tab, even at `--margin 0`.** Rows are centred in the band with a
 half-pitch offset, so the first row lands at least `pitch/2` from the edge. At `--margin 0`
-with pitch 3 the first row sits at y=2.5, leaving a 2.5 mm solid strip. The effective tab is:
+with pitch 3 the first row sits at y=2.5, leaving a 2.5mm solid strip. The effective tab is:
 
 ```
 effective tab  =  margin  +  (leftover ÷ 2)  +  pitch/2      where leftover = span − rows × pitch
 ```
 
-So the practical floor for the row-based patterns is about `pitch/2` — roughly 1.5 mm at
+So the practical floor for the row-based patterns is about `pitch/2` — roughly 1.5mm at
 default pitch. **The biaxial patterns behave differently:** their cuts are clipped straight
 at the band edge, so at `--margin 0` honeycomb and auxetic really do cut to y=0 and the
 panel has no tab at all.
 
 ### Guidance
 
-- **Don't go below ~3 mm** if the tab is a glue surface. A 2.5 mm strip in 3 mm ply, with a
+- **Don't go below ~3mm** if the tab is a glue surface. A 2.5mm strip in 3mm ply, with a
   full-width slit immediately inboard of it, is a tear-out waiting to happen.
-- **5–8 mm** is a sane general range; 6 is the default for that reason.
-- **Go larger (10–20 mm)** if you are screwing, bolting, or slotting through the tab, or if
+- **5–8mm** is a sane general range; 6 is the default for that reason.
+- **Go larger (10–20mm)** if you are screwing, bolting, or slotting through the tab, or if
   the hinge carries load in tension.
 - **`--margin 0` is legitimate** when the hinge field runs into a larger part that provides
   its own fixing, or when you will trim the ends after cutting. Just know you are giving up
   the attachment surface.
-- Shrinking the margin buys you rows — 6→0 gains 4 rows on a 200 mm panel, about 6%. That is
+- Shrinking the margin buys you rows — 6→0 gains 4 rows on a 200mm panel, about 6%. That is
   rarely worth losing the tab for. **If you need more rows, lengthen the panel or reduce the
   pitch**; both are much better levers than eating the tab.
 
@@ -443,25 +443,25 @@ panel length  =  hinge length + 2 × margin
 
 | Target radius | 90° needs | 180° needs | Rows @ pitch 3 (90°) |
 |---|---|---|---|
-| 5 mm | 7.9 mm | 15.7 mm | 3 |
-| 10 mm | 15.7 mm | 31.4 mm | 6 |
-| 15 mm | 23.6 mm | 47.1 mm | 8 |
-| 20 mm | 31.4 mm | 62.8 mm | 11 |
-| 25 mm | 39.3 mm | 78.5 mm | 14 |
-| 30 mm | 47.1 mm | 94.2 mm | 16 |
-| 50 mm | 78.5 mm | 157.1 mm | 27 |
-| 75 mm | 117.8 mm | 235.6 mm | 40 |
+| 5mm | 7.9mm | 15.7mm | 3 |
+| 10mm | 15.7mm | 31.4mm | 6 |
+| 15mm | 23.6mm | 47.1mm | 8 |
+| 20mm | 31.4mm | 62.8mm | 11 |
+| 25mm | 39.3mm | 78.5mm | 14 |
+| 30mm | 47.1mm | 94.2mm | 16 |
+| 50mm | 78.5mm | 157.1mm | 27 |
+| 75mm | 117.8mm | 235.6mm | 40 |
 
 Read the other way — what a given panel can do at pitch 3, margin 6:
 
 | Panel length | Hinge band | Rows | Gentlest 90° radius |
 |---|---|---|---|
-| 40 mm | 28 mm | 9 | ~17 mm |
-| 60 mm | 48 mm | 16 | ~31 mm |
-| 80 mm | 68 mm | 22 | ~42 mm |
-| 100 mm | 88 mm | 29 | ~55 mm |
-| 200 mm | 188 mm | 62 | ~118 mm |
-| 300 mm | 288 mm | 96 | ~183 mm |
+| 40mm | 28mm | 9 | ~17mm |
+| 60mm | 48mm | 16 | ~31mm |
+| 80mm | 68mm | 22 | ~42mm |
+| 100mm | 88mm | 29 | ~55mm |
+| 200mm | 188mm | 62 | ~118mm |
+| 300mm | 288mm | 96 | ~183mm |
 
 A panel *can* bend tighter than the figure in the last column — you are then asking fewer
 rows to take more angle each, which is exactly what breaks ligaments. Treat that column as
@@ -483,19 +483,19 @@ actual ligament  ≈  bridge − kerf                       (straight, wave, che
 actual ligament  ≈  bridge − 2 × hole − kerf            (dogbone)
 ```
 
-Typical CO₂ kerf in 3 mm ply is 0.15–0.20 mm. Dogbone at defaults:
+Typical CO₂ kerf in 3mm ply is 0.15–0.20mm. Dogbone at defaults:
 
 | Kerf | hole 0.3 | hole 0.4 | hole 0.5 | hole 0.6 |
 |---|---|---|---|---|
-| 0.10 mm | 2.30 | 2.10 | 1.90 | 1.70 |
-| 0.15 mm | 2.25 | 2.05 | 1.85 | 1.65 |
-| 0.20 mm | 2.20 | 2.00 | 1.80 | 1.60 |
-| 0.25 mm | 2.15 | 1.95 | 1.75 | 1.55 |
+| 0.10mm | 2.30 | 2.10 | 1.90 | 1.70 |
+| 0.15mm | 2.25 | 2.05 | 1.85 | 1.65 |
+| 0.20mm | 2.20 | 2.00 | 1.80 | 1.60 |
+| 0.25mm | 2.15 | 1.95 | 1.75 | 1.55 |
 
 *(bridge 3, ligament in mm)*
 
 **Add your kerf to `--bridge`** if you want the nominal ligament you designed. Measure kerf
-once on your machine and stock: cut a 20 mm square, measure it, the shortfall is one kerf.
+once on your machine and stock: cut a 20mm square, measure it, the shortfall is one kerf.
 
 ---
 
@@ -523,7 +523,7 @@ living-hinge-straight-40x120mm.svg            <- bridge 2.0, the default, keeps 
 living-hinge-straight-40x120mm-bridge2.5.svg
 ```
 
-These six are committed, in **`coupons/`**, along with a single 290 × 132 mm sheet
+These six are committed, in **`coupons/`**, along with a single 290 × 132mm sheet
 holding all of them — `coupons/coupon-sheet-bridge-sweep-290x132mm.svg` — and
 `coupons/README.md`, which records the settings held constant across the sweep. You
 can cut the sheet without running anything.
@@ -534,7 +534,7 @@ Cut all six on one sheet, in the grain orientation you will actually use. Then:
 2. **Cycle the survivors 20–30 times.** Fatigue is what kills living hinges in service, not
    the first bend.
 3. **Bend one to destruction** to find the margin you actually have.
-4. Record the narrowest bridge that survives cycling, then **add 0.25 mm** as your working
+4. Record the narrowest bridge that survives cycling, then **add 0.25mm** as your working
    value.
 
 Repeat per material and per thickness. Grain direction matters in ply — slits running
@@ -562,14 +562,14 @@ estimates.
 </svg>
 ```
 
-- **Physical size is declared** (`width="50mm"`), with `viewBox` at 1 user unit = 1 mm. Import
+- **Physical size is declared** (`width="50mm"`), with `viewBox` at 1 user unit = 1mm. Import
   at 100% and it is correct size.
 - **Two groups.** `#outline` is the panel rectangle — **delete it** when embedding the hinge
   into a larger part. `#hinge-slits` is the cut field.
-- `fill="none"`, black hairline **0.02 mm stroke**, so cutter software reads vector cut
+- `fill="none"`, black hairline **0.02mm stroke**, so cutter software reads vector cut
   rather than raster engrave.
 - With `--units in`: `width="1.9685in"`, viewBox in 1/96 in units, stroke 0.0756 (still
-  0.02 mm). Geometry is identical — only the units change.
+  0.02mm). Geometry is identical — only the units change.
 - Coordinates are rounded to 4 decimal places.
 - The `<desc>` carries the full parameter set, so a stray SVG is self-documenting. Open it in
   a text editor to recover what generated it.
@@ -632,14 +632,14 @@ Set `LIVING_HINGE_DEBUG=1` for a stack trace on unexpected errors.
 - **`--hole` is a radius.** The stats report `hole` (radius) and `holeDia` (diameter).
 - **`--segments` silently outranks `--targetSlit`** — you get a warning, but segments wins.
 - **A unit suffix on an input does not change the output units.** `--width 2in` gives a
-  50.8 mm panel written in mm. You need `--units in` for inch output.
+  50.8mm panel written in mm. You need `--units in` for inch output.
 - **`--out` will not accept a directory**; use `--outdir`.
 - **`--all` refuses `--pattern`** rather than guessing which you meant — it does not
   quietly ignore one of them.
 - **Wave files are large** (74 KB at defaults, ~4× chevron). Some cutter software is slow
   with thousands of polyline points.
 - **The outline rect is not counted in `cuts`** — it is the panel boundary, not a hinge cut.
-- **Defaults are aimed at ~3 mm ply/acrylic.** At a very different thickness, start from §4
+- **Defaults are aimed at ~3mm ply/acrylic.** At a very different thickness, start from §4
   rather than the shipped defaults.
 
 ---
