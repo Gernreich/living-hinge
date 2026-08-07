@@ -5,13 +5,19 @@ millimetre-true — `1 user unit = 1 mm` with a physical `width`/`height` — so
 and cuts at real size.
 
 <p>
-<img src="preview-straight.svg" alt="Straight living-hinge pattern: rows of parallel slits, offset row to row, across a 60 by 90 mm panel" width="30%">
-<img src="preview-wave.svg" alt="Wave living-hinge pattern: the same lattice with sinusoidal slits instead of straight ones" width="30%">
-<img src="preview-honeycomb.svg" alt="Honeycomb living-hinge pattern: a hexagonal lattice that bends on both axes" width="30%">
+<a href="examples/living-hinge-straight-50x200mm.svg"><img src="previews/living-hinge-straight-50x200mm.svg" alt="straight living hinge pattern: rows of parallel slits, offset row to row" width="90"></a><br><sub>straight</sub>
+<a href="examples/living-hinge-dogbone-50x200mm.svg"><img src="previews/living-hinge-dogbone-50x200mm.svg" alt="dogbone living hinge pattern: straight slits with a round relief hole at each end" width="90"></a><br><sub>dogbone</sub>
+<a href="examples/living-hinge-wave-50x200mm.svg"><img src="previews/living-hinge-wave-50x200mm.svg" alt="wave living hinge pattern: sinusoidal slits" width="90"></a><br><sub>wave</sub>
+<a href="examples/living-hinge-chevron-50x200mm.svg"><img src="previews/living-hinge-chevron-50x200mm.svg" alt="chevron living hinge pattern: zigzag slits" width="90"></a><br><sub>chevron</sub>
+<a href="examples/living-hinge-torsional-50x200mm.svg"><img src="previews/living-hinge-torsional-50x200mm.svg" alt="torsional living hinge pattern: I-cuts, straight slits with perpendicular end caps" width="90"></a><br><sub>torsional</sub>
+<a href="examples/living-hinge-honeycomb-50x200mm.svg"><img src="previews/living-hinge-honeycomb-50x200mm.svg" alt="honeycomb living hinge pattern: a hexagonal lattice, bends on both axes" width="90"></a><br><sub>honeycomb</sub>
+<a href="examples/living-hinge-auxetic-50x200mm.svg"><img src="previews/living-hinge-auxetic-50x200mm.svg" alt="auxetic living hinge pattern: rotating squares, bends on both axes" width="90"></a><br><sub>auxetic</sub>
+<a href="examples/living-hinge-crosshatch-50x200mm.svg"><img src="previews/living-hinge-crosshatch-50x200mm.svg" alt="crosshatch living hinge pattern: alternating short slits, bends on both axes" width="90"></a><br><sub>crosshatch</sub>
 </p>
 
-*Three of the eight patterns — straight, wave, honeycomb — at 60 × 90 mm. Display
-renderings with the cut stroke thickened; real output is a hairline.*
+*All eight patterns at 50 × 200 mm. Click one to download the cut file; the pictures are
+display renderings with the stroke thickened, since a real cut file draws a hairline that
+a browser shows almost invisibly against a transparency checkerboard.*
 
 **[Read the operating guide](https://gernreich.github.io/living-hinge/)**
 
@@ -70,6 +76,6 @@ find out.
 | `examples/` | one cut-ready file per pattern, all eight, at 50 × 200 mm |
 | `coupons/` | bridge-sweep test coupons and cut instructions |
 | `index.html` | redirect that serves the guide on GitHub Pages |
-| `preview-*.svg` | display renderings for this page — **not** cut files |
+| `previews/` | display renderings of every pattern — **not** cut files |
 
 Released under [CC0 1.0](LICENSE).

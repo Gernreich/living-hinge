@@ -191,6 +191,10 @@ below is quoted at — so the numbers in each section describe a file you can op
 eight span the full panel width, `x = 0` to `x = 50`, which is the rule §1 says
 everything else serves.
 
+`previews/` holds a display rendering of each, with the cut stroke thickened. Browse
+those; cut the ones in `examples/`. A real cut file is a 0.02mm hairline, which most
+viewers show almost invisibly against a transparency checkerboard.
+
 Stats below are real output at the default **50 × 200 mm, margin 6**.
 
 ### straight — the default; start here
