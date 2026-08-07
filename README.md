@@ -4,20 +4,34 @@ Parametric lattice-hinge ("living hinge") SVG generator for laser cutting. Outpu
 millimetre-true — `1 user unit = 1 mm` with a physical `width`/`height` — so it prints
 and cuts at real size.
 
-<p>
-<a href="examples/living-hinge-straight-50x200mm.svg"><img src="previews/living-hinge-straight-50x200mm.svg" alt="straight living hinge pattern: rows of parallel slits, offset row to row" width="90"></a><br><sub>straight</sub>
-<a href="examples/living-hinge-dogbone-50x200mm.svg"><img src="previews/living-hinge-dogbone-50x200mm.svg" alt="dogbone living hinge pattern: straight slits with a round relief hole at each end" width="90"></a><br><sub>dogbone</sub>
-<a href="examples/living-hinge-wave-50x200mm.svg"><img src="previews/living-hinge-wave-50x200mm.svg" alt="wave living hinge pattern: sinusoidal slits" width="90"></a><br><sub>wave</sub>
-<a href="examples/living-hinge-chevron-50x200mm.svg"><img src="previews/living-hinge-chevron-50x200mm.svg" alt="chevron living hinge pattern: zigzag slits" width="90"></a><br><sub>chevron</sub>
-<a href="examples/living-hinge-torsional-50x200mm.svg"><img src="previews/living-hinge-torsional-50x200mm.svg" alt="torsional living hinge pattern: I-cuts, straight slits with perpendicular end caps" width="90"></a><br><sub>torsional</sub>
-<a href="examples/living-hinge-honeycomb-50x200mm.svg"><img src="previews/living-hinge-honeycomb-50x200mm.svg" alt="honeycomb living hinge pattern: a hexagonal lattice, bends on both axes" width="90"></a><br><sub>honeycomb</sub>
-<a href="examples/living-hinge-auxetic-50x200mm.svg"><img src="previews/living-hinge-auxetic-50x200mm.svg" alt="auxetic living hinge pattern: rotating squares, bends on both axes" width="90"></a><br><sub>auxetic</sub>
-<a href="examples/living-hinge-crosshatch-50x200mm.svg"><img src="previews/living-hinge-crosshatch-50x200mm.svg" alt="crosshatch living hinge pattern: alternating short slits, bends on both axes" width="90"></a><br><sub>crosshatch</sub>
-</p>
+<table>
+<tr>
+<td align="center"><a href="examples/living-hinge-straight-50x200mm.svg"><img src="previews/living-hinge-straight-50x200mm.svg" alt="straight pattern: rows of parallel slits, offset row to row" width="60"></a></td>
+<td align="center"><a href="examples/living-hinge-dogbone-50x200mm.svg"><img src="previews/living-hinge-dogbone-50x200mm.svg" alt="dogbone pattern: straight slits with a round relief hole at each end" width="60"></a></td>
+<td align="center"><a href="examples/living-hinge-wave-50x200mm.svg"><img src="previews/living-hinge-wave-50x200mm.svg" alt="wave pattern: sinusoidal slits" width="60"></a></td>
+<td align="center"><a href="examples/living-hinge-chevron-50x200mm.svg"><img src="previews/living-hinge-chevron-50x200mm.svg" alt="chevron pattern: zigzag slits" width="60"></a></td>
+<td align="center"><a href="examples/living-hinge-torsional-50x200mm.svg"><img src="previews/living-hinge-torsional-50x200mm.svg" alt="torsional pattern: I-cuts, straight slits with perpendicular end caps" width="60"></a></td>
+<td align="center"><a href="examples/living-hinge-honeycomb-50x200mm.svg"><img src="previews/living-hinge-honeycomb-50x200mm.svg" alt="honeycomb pattern: a hexagonal lattice, bends on both axes" width="60"></a></td>
+<td align="center"><a href="examples/living-hinge-auxetic-50x200mm.svg"><img src="previews/living-hinge-auxetic-50x200mm.svg" alt="auxetic pattern: rotating squares, bends on both axes" width="60"></a></td>
+<td align="center"><a href="examples/living-hinge-crosshatch-50x200mm.svg"><img src="previews/living-hinge-crosshatch-50x200mm.svg" alt="crosshatch pattern: alternating short slits, bends on both axes" width="60"></a></td>
+</tr>
+<tr>
+<td align="center"><sub>straight</sub></td>
+<td align="center"><sub>dogbone</sub></td>
+<td align="center"><sub>wave</sub></td>
+<td align="center"><sub>chevron</sub></td>
+<td align="center"><sub>torsional</sub></td>
+<td align="center"><sub>honeycomb</sub></td>
+<td align="center"><sub>auxetic</sub></td>
+<td align="center"><sub>crosshatch</sub></td>
+</tr>
+</table>
 
-*All eight patterns at 50 × 200 mm. Click one to download the cut file; the pictures are
-display renderings with the stroke thickened, since a real cut file draws a hairline that
-a browser shows almost invisibly against a transparency checkerboard.*
+*All eight patterns at 50 × 200 mm. Click one to download the cut file. The pictures are
+display renderings — **gold is the panel that stays, cream the slits the laser removes** —
+with the stroke thickened and painted onto the panel. A real cut file draws a hairline on
+nothing at all, which a browser shows almost invisibly against a transparency
+checkerboard.*
 
 **[Read the operating guide](https://gernreich.github.io/living-hinge/)**
 

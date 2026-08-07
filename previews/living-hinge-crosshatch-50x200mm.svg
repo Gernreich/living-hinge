@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- DISPLAY ONLY - not a cut file. This is examples/living-hinge-crosshatch-50x200mm.svg with the cut
-     stroke thickened from 0.02mm to 0.6mm so it reads on a page. A real cut
+     stroke thickened from 0.02mm to 0.6mm and painted onto the panel so it reads
+     on a page. Gold is the panel that stays, cream the slits the laser removes. A real cut
      file draws a hairline, which a browser renders almost invisibly against
      a transparency checkerboard. Cut the file in examples/, not this one. -->
 <svg xmlns="http://www.w3.org/2000/svg" version="1.1"
      width="50mm" height="200mm" viewBox="0 0 50 200">
+  <rect id="display-bg" x="0.0" y="0.0" width="50.0" height="200.0" fill="#c9a227"/>
   <title>Living hinge - crosshatch - 50mm x 200mm — display only</title>
   <desc>1 user unit = 1 mm. Panel 50mm x 200mm, solid end tabs 6mm. Pattern: crosshatch; cell 6.25, slit 4.5, cells 8 x 30, edgeSlits 30, biaxial true. Dimensions in mm unless noted.</desc>
 
-  <g fill="none" stroke="#000000" stroke-width="0.6" stroke-linecap="butt">
+  <g fill="none" stroke="#faf7f0" stroke-width="0.6" stroke-linecap="butt">
 
     <g id="outline">
       <rect x="0" y="0" width="50" height="200"/>

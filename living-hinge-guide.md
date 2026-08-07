@@ -203,20 +203,34 @@ below is quoted at — so the numbers in each section describe a file you can op
 eight span the full panel width, `x = 0` to `x = 50`, which is the rule §1 says
 everything else serves.
 
-`previews/` holds a display rendering of each, with the cut stroke thickened. Browse
-those; cut the ones in `examples/`. A real cut file is a 0.02mm hairline, which most
-viewers show almost invisibly against a transparency checkerboard.
+`previews/` holds a display rendering of each — **gold is the panel that stays, cream the
+slits the laser removes** — with the cut stroke thickened and painted onto the panel.
+Browse those; cut the ones in `examples/`. A real cut file is a 0.02mm hairline on no
+background at all, which most viewers show almost invisibly against a transparency
+checkerboard.
 
-<p>
-<a href="examples/living-hinge-straight-50x200mm.svg"><img src="previews/living-hinge-straight-50x200mm.svg" alt="straight pattern: rows of parallel slits, offset row to row" width="90"></a><br><sub>straight</sub>
-<a href="examples/living-hinge-dogbone-50x200mm.svg"><img src="previews/living-hinge-dogbone-50x200mm.svg" alt="dogbone pattern: straight slits with a round relief hole at each end" width="90"></a><br><sub>dogbone</sub>
-<a href="examples/living-hinge-wave-50x200mm.svg"><img src="previews/living-hinge-wave-50x200mm.svg" alt="wave pattern: sinusoidal slits" width="90"></a><br><sub>wave</sub>
-<a href="examples/living-hinge-chevron-50x200mm.svg"><img src="previews/living-hinge-chevron-50x200mm.svg" alt="chevron pattern: zigzag slits" width="90"></a><br><sub>chevron</sub>
-<a href="examples/living-hinge-torsional-50x200mm.svg"><img src="previews/living-hinge-torsional-50x200mm.svg" alt="torsional pattern: I-cuts, straight slits with perpendicular end caps" width="90"></a><br><sub>torsional</sub>
-<a href="examples/living-hinge-honeycomb-50x200mm.svg"><img src="previews/living-hinge-honeycomb-50x200mm.svg" alt="honeycomb pattern: a hexagonal lattice, bends on both axes" width="90"></a><br><sub>honeycomb</sub>
-<a href="examples/living-hinge-auxetic-50x200mm.svg"><img src="previews/living-hinge-auxetic-50x200mm.svg" alt="auxetic pattern: rotating squares, bends on both axes" width="90"></a><br><sub>auxetic</sub>
-<a href="examples/living-hinge-crosshatch-50x200mm.svg"><img src="previews/living-hinge-crosshatch-50x200mm.svg" alt="crosshatch pattern: alternating short slits, bends on both axes" width="90"></a><br><sub>crosshatch</sub>
-</p>
+<table>
+<tr>
+<td align="center"><a href="examples/living-hinge-straight-50x200mm.svg"><img src="previews/living-hinge-straight-50x200mm.svg" alt="straight pattern: rows of parallel slits, offset row to row" width="60"></a></td>
+<td align="center"><a href="examples/living-hinge-dogbone-50x200mm.svg"><img src="previews/living-hinge-dogbone-50x200mm.svg" alt="dogbone pattern: straight slits with a round relief hole at each end" width="60"></a></td>
+<td align="center"><a href="examples/living-hinge-wave-50x200mm.svg"><img src="previews/living-hinge-wave-50x200mm.svg" alt="wave pattern: sinusoidal slits" width="60"></a></td>
+<td align="center"><a href="examples/living-hinge-chevron-50x200mm.svg"><img src="previews/living-hinge-chevron-50x200mm.svg" alt="chevron pattern: zigzag slits" width="60"></a></td>
+<td align="center"><a href="examples/living-hinge-torsional-50x200mm.svg"><img src="previews/living-hinge-torsional-50x200mm.svg" alt="torsional pattern: I-cuts, straight slits with perpendicular end caps" width="60"></a></td>
+<td align="center"><a href="examples/living-hinge-honeycomb-50x200mm.svg"><img src="previews/living-hinge-honeycomb-50x200mm.svg" alt="honeycomb pattern: a hexagonal lattice, bends on both axes" width="60"></a></td>
+<td align="center"><a href="examples/living-hinge-auxetic-50x200mm.svg"><img src="previews/living-hinge-auxetic-50x200mm.svg" alt="auxetic pattern: rotating squares, bends on both axes" width="60"></a></td>
+<td align="center"><a href="examples/living-hinge-crosshatch-50x200mm.svg"><img src="previews/living-hinge-crosshatch-50x200mm.svg" alt="crosshatch pattern: alternating short slits, bends on both axes" width="60"></a></td>
+</tr>
+<tr>
+<td align="center"><sub>straight</sub></td>
+<td align="center"><sub>dogbone</sub></td>
+<td align="center"><sub>wave</sub></td>
+<td align="center"><sub>chevron</sub></td>
+<td align="center"><sub>torsional</sub></td>
+<td align="center"><sub>honeycomb</sub></td>
+<td align="center"><sub>auxetic</sub></td>
+<td align="center"><sub>crosshatch</sub></td>
+</tr>
+</table>
 
 *Click any one to download its cut file.*
 
