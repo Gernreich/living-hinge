@@ -186,6 +186,11 @@ different width. If you pass both, `--segments` wins and you get a warning.
 
 ## 5. The eight patterns
 
+Each is committed cut-ready in **`examples/`** at 50 × 200 mm — the size every figure
+below is quoted at — so the numbers in each section describe a file you can open. All
+eight span the full panel width, `x = 0` to `x = 50`, which is the rule §1 says
+everything else serves.
+
 Stats below are real output at the default **50 × 200 mm, margin 6**.
 
 ### straight — the default; start here

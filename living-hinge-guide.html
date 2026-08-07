@@ -141,6 +141,7 @@ var r = gen.generate({ pattern: 'wave', width: 80, height: 300, bridge: 1.5 });
 <p><code>--targetSlit</code> sets slit length indirectly: the generator picks <code>segments = round(width / targetSlit)</code>, so slit length stays near your target as panels get wider. Prefer it over <code>--segments</code>, which hardcodes a count that stops making sense at a different width. If you pass both, <code>--segments</code> wins and you get a warning.</p>
 <hr>
 <h2 id="5-the-eight-patterns">5. The eight patterns</h2>
+<p>Each is committed cut-ready in <strong><code>examples/</code></strong> at 50 × 200 mm — the size every figure below is quoted at — so the numbers in each section describe a file you can open. All eight span the full panel width, <code>x = 0</code> to <code>x = 50</code>, which is the rule §1 says everything else serves.</p>
 <p>Stats below are real output at the default <strong>50 × 200 mm, margin 6</strong>.</p>
 <h3 id="straight--the-default-start-here">straight — the default; start here</h3>
 <p>Plain staggered slits. Fewest cuts, fastest to cut, strongest for a given bridge.</p>

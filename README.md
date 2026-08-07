@@ -27,6 +27,10 @@ and bending are shown.
 ./living-hinge.js --help                          # every option
 ```
 
+Every pattern is committed cut-ready in [`examples/`](examples) at 50 × 200 mm, so you can
+cut one without running anything. Those are the files the guide's per-pattern figures
+describe.
+
 Requires Node. No dependencies.
 
 ## Eight patterns
@@ -63,6 +67,7 @@ find out.
 | `living-hinge-generator.js` | the geometry library it calls; must sit beside the CLI |
 | `living-hinge-guide.md` · `.html` | operating guide; the markdown is the source |
 | `NOTES.md` | how to reach this generator from a later session |
+| `examples/` | one cut-ready file per pattern, all eight, at 50 × 200 mm |
 | `coupons/` | bridge-sweep test coupons and cut instructions |
 | `index.html` | redirect that serves the guide on GitHub Pages |
 | `preview-*.svg` | display renderings for this page — **not** cut files |
