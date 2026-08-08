@@ -37,7 +37,7 @@ with the stroke thickened and painted onto the panel. A real cut file draws a ha
 nothing at all, which a browser shows almost invisibly against a transparency
 checkerboard.*
 
-**[Read the operating guide](https://gernreich.github.io/living-hinge/)**
+**[Read the writeup](https://gernreich.github.io/living-hinge/)**
 
 Built for **[LaserMadeMusic](https://www.youtube.com/@LaserMadeMusic)**, where the cutting
 and bending are shown.
