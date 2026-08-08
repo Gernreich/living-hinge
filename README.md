@@ -4,6 +4,8 @@ Parametric lattice-hinge ("living hinge") SVG generator for laser cutting. Outpu
 millimetre-true — `1 user unit = 1mm` with a physical `width`/`height` — so it prints
 and cuts at real size.
 
+**[Read the writeup](https://gernreich.github.io/living-hinge/)**
+
 <table>
 <tr>
 <td align="center"><a href="examples/living-hinge-straight-50x200mm.svg"><img src="previews/living-hinge-straight-50x200mm.svg" alt="straight pattern: rows of parallel slits, offset row to row" width="125"></a></td>
@@ -36,8 +38,6 @@ display renderings — **gold is the panel that stays, cream the slits the laser
 with the stroke thickened and painted onto the panel. A real cut file draws a hairline on
 nothing at all, which a browser shows almost invisibly against a transparency
 checkerboard.*
-
-**[Read the writeup](https://gernreich.github.io/living-hinge/)**
 
 Built for **[LaserMadeMusic](https://www.youtube.com/@LaserMadeMusic)**, where the cutting
 and bending are shown.
