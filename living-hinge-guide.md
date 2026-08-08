@@ -10,10 +10,12 @@ Two files, which must sit in the same directory:
 
 Requires Node ≥ 10.12. No dependencies, no install step.
 
-> **The tuning numbers in this guide are starting points, not tested values.** They are
-> derived from geometry, not from cut material. Nothing in this toolchain has been
-> validated against real ply or acrylic. Cut a coupon (see [Finding your real
-> numbers](#10-finding-your-real-numbers)) before committing to a full panel.
+> **The stock is 3mm Baltic birch plywood** — that is what these are cut in, and what the
+> defaults are aimed at. **The tuning numbers are still starting points, not tested
+> values:** they are derived from geometry rather than measured off cut material, and
+> bridge width in particular decides whether a hinge flexes or snaps. Cut a coupon (see
+> [Finding your real numbers](#10-finding-your-real-numbers)) before committing a full
+> panel.
 
 ---
 
@@ -162,7 +164,7 @@ exhausting memory. You will only ever touch them for a genuinely enormous panel.
 
 | Material | `--bridge` | `--pitch` | `--targetSlit` | Notes |
 |---|---|---|---|---|
-| 3mm ply | 1.5 – 2.0 | 3.0 | 12 | The shipped defaults sit at the stiff/strong end |
+| **3mm Baltic birch ply** | 1.5 – 2.0 | 3.0 | 12 | **The stock these are cut in.** The shipped defaults sit at the stiff/strong end |
 | 3mm acrylic | 2.0 – 2.5 | 3.0 – 3.5 | 12 | Brittle. Go wider on the bridge, expect fewer bend cycles |
 | 1.5mm ply / card | 1.0 – 1.5 | 2.0 – 2.5 | 8 – 10 | Thinner stock tolerates a narrower ligament |
 | 6mm ply | 2.5 – 3.5 | 4.0 – 5.0 | 15 – 20 | Thick stock needs a long ligament to bend at all |

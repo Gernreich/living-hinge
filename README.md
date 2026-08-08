@@ -78,9 +78,9 @@ Requires Node. No dependencies.
 over your other numbers: `--side` and `--cell` are fitted to the panel width, so they
 are targets rather than guarantees, and the report tells you what they became.
 
-**The tuning numbers here have not been validated against cut material.** Defaults are
-reasoned, not tested. Bridge width in particular is the parameter that decides whether
-a hinge flexes or snaps, and the right value depends on your stock and your kerf. The
+**The stock is 3mm Baltic birch plywood**, and the defaults are aimed at it. **The tuning
+numbers are still reasoned rather than tested**, though: bridge width decides whether a
+hinge flexes or snaps, and the right value depends on your kerf as well as your stock. The
 `coupons/` directory holds a bridge sweep for exactly that purpose — six otherwise
 identical 40 × 120mm coupons varying only `--bridge`, so you can cut one sheet and
 find out.

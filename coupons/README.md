@@ -1,4 +1,4 @@
-# Bridge sweep coupons — straight pattern, 3mm stock
+# Bridge sweep coupons — straight pattern, 3mm Baltic birch ply
 
 Six 40 × 120mm coupons that vary **only** `--bridge`, the uncut ligament between collinear
 slits. Everything else is held constant: pitch 3, margin 6, 3 segments, 36 rows, 126 cuts each.
