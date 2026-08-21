@@ -3,28 +3,137 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Living Hinge Generator — Operating Guide</title>
-<link rel="canonical" href="living-hinge-guide.html">
-<meta http-equiv="refresh" content="0; url=living-hinge-guide.html">
+<title>Living Hinge Generator</title>
 <style>
-  :root{color-scheme:light dark}
-  body{margin:0;min-height:100svh;display:grid;place-items:center;
-       background:#fbfbfa;color:#1a1c1e;
-       font:16px/1.6 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif}
-  @media (prefers-color-scheme:dark){body{background:#15171a;color:#e6e8ea}}
-  main{text-align:center;padding:32px}
-  h1{font-size:1.15rem;font-weight:650;margin:0 0 .5em}
-  p{margin:.4em 0;opacity:.75;font-size:.92rem}
-  a{color:#1d4ed8}
-  @media (prefers-color-scheme:dark){a{color:#7aa2f7}}
+:root{--bg:#fbfbfa;--fg:#1a1c1e;--mut:#5b6067;--line:#e2e4e7;--card:#fff;--accent:#1d4ed8;
+--codebg:#f4f5f7;--thbg:#f0f1f3;--mark:#fff8c4}
+@media (prefers-color-scheme:dark){:root{--bg:#15171a;--fg:#e6e8ea;--mut:#9aa1a9;--line:#2b2f34;
+--card:#1b1e22;--accent:#7aa2f7;--codebg:#22262b;--thbg:#23272c;--mark:#4a411c}}
+:root[data-theme=dark]{--bg:#15171a;--fg:#e6e8ea;--mut:#9aa1a9;--line:#2b2f34;--card:#1b1e22;
+--accent:#7aa2f7;--codebg:#22262b;--thbg:#23272c;--mark:#4a411c}
+:root[data-theme=light]{--bg:#fbfbfa;--fg:#1a1c1e;--mut:#5b6067;--line:#e2e4e7;--card:#fff;
+--accent:#1d4ed8;--codebg:#f4f5f7;--thbg:#f0f1f3;--mark:#fff8c4}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font:16px/1.62 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
+-webkit-text-size-adjust:100%}
+.wrap{display:grid;grid-template-columns:250px minmax(0,1fr);gap:44px;max-width:1180px;
+margin:0 auto;padding:40px 28px 96px}
+nav{position:sticky;top:28px;align-self:start;max-height:calc(100vh - 56px);overflow:auto;
+border-right:1px solid var(--line);padding-right:16px;font-size:13.5px;line-height:1.45}
+nav b{display:block;font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--mut);
+margin:0 0 12px}
+nav a{display:block;color:var(--mut);text-decoration:none;padding:3px 0;border-radius:4px}
+nav a:hover{color:var(--accent)}
+nav a.l1{color:var(--fg);font-weight:640;margin-top:11px}
+nav a.l2{padding-left:12px}
+main{min-width:0}
+h1{font-size:1.62rem;line-height:1.25;letter-spacing:-.015em;margin:2.4em 0 .5em;
+padding-bottom:.32em;border-bottom:2px solid var(--line)}
+main>h1:first-child{margin-top:0;border-bottom:none;font-size:1.95rem}
+h2{font-size:1.16rem;margin:2em 0 .5em;letter-spacing:-.01em}
+h3{font-size:1.02rem;font-weight:650;margin:1.7em 0 .45em}
+p{margin:.85em 0}
+ul,ol{margin:.85em 0;padding-left:1.35em}
+li{margin:.3em 0}
+hr{border:0;border-top:1px solid var(--line);margin:2.6em 0}
+figure{margin:1.6em 0}
+figure svg,figure img{display:block;width:100%;max-width:100%;height:auto;
+border:1px solid var(--line);border-radius:10px}
+a{color:var(--accent)}
+code{font:13px/1.5 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+background:var(--codebg);padding:.1em .32em;border-radius:4px;
+border:1px solid color-mix(in srgb,var(--line) 70%,transparent)}
+pre{background:var(--codebg);border:1px solid var(--line);border-radius:9px;
+padding:14px 16px;overflow-x:auto;margin:1.1em 0}
+pre code{background:none;border:0;padding:0;font-size:12.8px;line-height:1.62;white-space:pre}
+blockquote{margin:1.15em 0;padding:.7em 1.1em;border-left:4px solid var(--accent);
+background:var(--codebg);border-radius:0 7px 7px 0}
+blockquote p{margin:0}
+.tw{overflow-x:auto;margin:1.15em 0;border:1px solid var(--line);border-radius:9px;
+background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{padding:8px 13px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+/* honour align="center" on gallery cells: a presentation attribute loses to any
+   CSS rule, so the line above would silently left-align every thumbnail caption */
+td[align=center],th[align=center]{text-align:center}
+th{background:var(--thbg);font-weight:630;white-space:nowrap;font-size:13px;
+letter-spacing:.01em}
+tbody tr:last-child td{border-bottom:0}
+tbody tr:hover{background:color-mix(in srgb,var(--thbg) 45%,transparent)}
+td code,th code{white-space:nowrap}
+.tog{position:fixed;top:14px;right:14px;z-index:9;background:var(--card);color:var(--mut);
+border:1px solid var(--line);border-radius:7px;padding:6px 11px;font-size:12.5px;cursor:pointer}
+.tog:hover{color:var(--accent)}
+@media (max-width:900px){.wrap{grid-template-columns:1fr;gap:20px;padding:26px 18px 72px}
+nav{position:static;max-height:none;border-right:0;border-bottom:1px solid var(--line);
+padding:0 0 16px;columns:2;column-gap:20px}}
+@media print{nav,.tog{display:none}.wrap{display:block;max-width:none;padding:0}
+pre,.tw{break-inside:avoid}h1{break-after:avoid}}
 </style>
 </head>
 <body>
+<button class="tog" type="button">theme</button>
+<div class="wrap">
+<nav><b>Contents</b><a class="l1" href="#living-hinge-generator">Living Hinge Generator</a><a class="l2" href="#quick-start">Quick start</a><a class="l2" href="#eight-patterns">Eight patterns</a><a class="l2" href="#before-you-cut">Before you cut</a><a class="l2" href="#files">Files</a></nav>
 <main>
-  <h1>Living Hinge Generator</h1>
-  <p>Redirecting to the writeup…</p>
-  <p><a href="living-hinge-guide.html">Open it directly</a> ·
-     <a href="https://github.com/Gernreich/octagonal-torus">Source on GitHub</a></p>
+<h1 id="living-hinge-generator">Living Hinge Generator</h1>
+<p>Parametric lattice-hinge ("living hinge") SVG generator for laser cutting. Output is millimetre-true — <code>1 user unit = 1mm</code> with a physical <code>width</code>/<code>height</code> — so it prints and cuts at real size.</p>
+<p><strong><a href="https://gernreich.github.io/living-hinge/">Read the writeup</a></strong></p>
+<table>
+<tr>
+<td align="center"><a href="examples/living-hinge-straight-50x200mm.svg"><img src="previews/living-hinge-straight-50x200mm.svg" alt="straight pattern: rows of parallel slits, offset row to row" width="125"></a></td>
+<td align="center"><a href="examples/living-hinge-dogbone-50x200mm.svg"><img src="previews/living-hinge-dogbone-50x200mm.svg" alt="dogbone pattern: straight slits with a round relief hole at each end" width="125"></a></td>
+<td align="center"><a href="examples/living-hinge-wave-50x200mm.svg"><img src="previews/living-hinge-wave-50x200mm.svg" alt="wave pattern: sinusoidal slits" width="125"></a></td>
+<td align="center"><a href="examples/living-hinge-chevron-50x200mm.svg"><img src="previews/living-hinge-chevron-50x200mm.svg" alt="chevron pattern: zigzag slits" width="125"></a></td>
+</tr>
+<tr>
+<td align="center"><sub>straight</sub></td>
+<td align="center"><sub>dogbone</sub></td>
+<td align="center"><sub>wave</sub></td>
+<td align="center"><sub>chevron</sub></td>
+</tr>
+<tr>
+<td align="center"><a href="examples/living-hinge-torsional-50x200mm.svg"><img src="previews/living-hinge-torsional-50x200mm.svg" alt="torsional pattern: I-cuts, straight slits with perpendicular end caps" width="125"></a></td>
+<td align="center"><a href="examples/living-hinge-honeycomb-50x200mm.svg"><img src="previews/living-hinge-honeycomb-50x200mm.svg" alt="honeycomb pattern: a hexagonal lattice, bends on both axes" width="125"></a></td>
+<td align="center"><a href="examples/living-hinge-auxetic-50x200mm.svg"><img src="previews/living-hinge-auxetic-50x200mm.svg" alt="auxetic pattern: rotating squares, bends on both axes" width="125"></a></td>
+<td align="center"><a href="examples/living-hinge-crosshatch-50x200mm.svg"><img src="previews/living-hinge-crosshatch-50x200mm.svg" alt="crosshatch pattern: alternating short slits, bends on both axes" width="125"></a></td>
+</tr>
+<tr>
+<td align="center"><sub>torsional</sub></td>
+<td align="center"><sub>honeycomb</sub></td>
+<td align="center"><sub>auxetic</sub></td>
+<td align="center"><sub>crosshatch</sub></td>
+</tr>
+</table>
+<p><em>All eight patterns at 50 × 200mm. Click one to download the cut file. The pictures are display renderings — <strong>gold is the panel that stays, cream the slits the laser removes</strong> — with the stroke thickened and painted onto the panel. A real cut file draws a hairline on nothing at all, which a browser shows almost invisibly against a transparency checkerboard.</em></p>
+<p>Built for <strong><a href="https://www.youtube.com/@LaserMadeMusic">LaserMadeMusic</a></strong>, where the cutting and bending are shown.</p>
+<p><strong><a href="https://gernreich.github.io/">The rest of the build files</a></strong> — every instrument, generator and tool, indexed.</p>
+<p><strong><a href="https://github.com/Gernreich/living-hinge/archive/refs/heads/main.zip">Download everything as a ZIP</a></strong> — the CLI, the library, the guide, all eight examples and the coupons.</p>
+<h2 id="quick-start">Quick start</h2>
+<pre><code>./living-hinge.js --list                          # patterns and their defaults
+./living-hinge.js -p wave -w 80 -l 300            # 80 × 300mm wave hinge
+./living-hinge.js -p chevron -w 80 -l 300 --margin 10   # with a 10mm margin
+./living-hinge.js --help                          # every option</code></pre>
+<p>Every pattern is committed cut-ready in <a href="examples"><code>examples/</code></a> at 50 × 200mm, so you can cut one without running anything. Those are the files the guide's per-pattern figures describe.</p>
+<p>Requires Node. No dependencies.</p>
+<h2 id="eight-patterns">Eight patterns</h2>
+<div class='tw'><table><thead><tr><th>Pattern</th><th>Defaults (mm)</th></tr></thead><tbody><tr><td><code>straight</code></td><td>pitch 3, bridge 2</td></tr><tr><td><code>dogbone</code></td><td>pitch 3, bridge 3, hole 0.5</td></tr><tr><td><code>wave</code></td><td>pitch 3, bridge 2, wavelength 13, amplitude 1, step 0.5</td></tr><tr><td><code>chevron</code></td><td>pitch 3, bridge 2, wavelength 13, amplitude 1</td></tr><tr><td><code>torsional</code></td><td>pitch 3.5, bridge 2, cap 1</td></tr><tr><td><code>honeycomb</code></td><td>side 5, gap 1.2</td></tr><tr><td><code>auxetic</code></td><td>cell 6.25, gap 1.5</td></tr><tr><td><code>crosshatch</code></td><td>cell 6.25, slit 4.5</td></tr></tbody></table></div>
+<h2 id="before-you-cut">Before you cut</h2>
+<p><strong>Slits must reach the panel edges</strong>, or the hinge does not flex. That constraint wins over your other numbers: <code>--side</code> and <code>--cell</code> are fitted to the panel width, so they are targets rather than guarantees, and the report tells you what they became.</p>
+<p><strong>The stock is 3mm Baltic birch plywood</strong>, and the defaults are aimed at it. <strong>The tuning numbers are still reasoned rather than tested</strong>, though: bridge width decides whether a hinge flexes or snaps, and the right value depends on your kerf as well as your stock. The <code>coupons/</code> directory holds a bridge sweep for exactly that purpose — six otherwise identical 40 × 120mm coupons varying only <code>--bridge</code>, so you can cut one sheet and find out.</p>
+<h2 id="files">Files</h2>
+<div class='tw'><table><thead><tr><th></th><th></th></tr></thead><tbody><tr><td><code>living-hinge.js</code></td><td>the CLI — run it from this directory</td></tr><tr><td><code>living-hinge-generator.js</code></td><td>the geometry library it calls; must sit beside the CLI</td></tr><tr><td><code>living-hinge-guide.md</code> · <code>.html</code></td><td>operating guide; the markdown is the source</td></tr><tr><td><code>NOTES.md</code></td><td>how to reach this generator from a later session</td></tr><tr><td><code>examples/</code></td><td>one cut-ready file per pattern, all eight, at 50 × 200mm</td></tr><tr><td><code>coupons/</code></td><td>bridge-sweep test coupons and cut instructions</td></tr><tr><td><code>index.html</code></td><td>redirect that serves the guide on GitHub Pages</td></tr><tr><td><code>previews/</code></td><td>display renderings of every pattern — <strong>not</strong> cut files</td></tr></tbody></table></div>
+<p>Released under <a href="LICENSE">CC0 1.0</a>.</p>
 </main>
+</div>
+<script>
+var r=document.documentElement,b=document.querySelector('.tog');
+function set(t){r.setAttribute('data-theme',t);try{localStorage.setItem('ctg-theme',t)}catch(e){}
+b.textContent=t==='dark'?'\u2600 light':'\u263e dark';}
+var saved=null;try{saved=localStorage.getItem('ctg-theme')}catch(e){}
+set(saved||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light'));
+b.addEventListener('click',function(){set(r.getAttribute('data-theme')==='dark'?'light':'dark')});
+</script>
 </body>
 </html>

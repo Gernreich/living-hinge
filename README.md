@@ -42,6 +42,9 @@ checkerboard.*
 Built for **[LaserMadeMusic](https://www.youtube.com/@LaserMadeMusic)**, where the cutting
 and bending are shown.
 
+**[The rest of the build files](https://gernreich.github.io/)** — every instrument,
+generator and tool, indexed.
+
 **[Download everything as a ZIP](https://github.com/Gernreich/living-hinge/archive/refs/heads/main.zip)** — the CLI, the library, the guide, all eight examples and the coupons.
 
 ## Quick start
