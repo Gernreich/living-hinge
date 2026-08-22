@@ -4,6 +4,7 @@ Parametric lattice-hinge ("living hinge") SVG generator for laser cutting. Outpu
 millimetre-true — `1 user unit = 1mm` with a physical `width`/`height` — so it prints
 and cuts at real size.
 
+<!-- readme-only -->
 **[Read the writeup](https://gernreich.github.io/living-hinge/)**
 
 <table>
