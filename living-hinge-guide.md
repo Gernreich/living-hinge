@@ -400,9 +400,13 @@ effective tab  =  margin  +  (leftover ÷ 2)  +  pitch/2      where leftover = s
 ```
 
 So the practical floor for the row-based patterns is about `pitch/2` — roughly 1.5mm at
-default pitch. **The biaxial patterns behave differently:** their cuts are clipped straight
-at the band edge, so at `--margin 0` honeycomb and auxetic really do cut to y=0 and the
-panel has no tab at all.
+default pitch. **Two of the three biaxial patterns behave differently:** their cuts
+are clipped straight at the band edge, so at `--margin 0` honeycomb and auxetic really do
+cut to y=0 and the panel has no tab at all. **Crosshatch is not one of them** — its slits
+sit inside their cells rather than being clipped, so it floors at `(cell − slit) ÷ 2`:
+0.875mm at the defaults, 1mm at `--cell 10 --slit 8`. That is under the `pitch/2` floor of
+the row patterns and well under the 3mm glue surface recommended below, so treat it as no
+tab even though it is not zero.
 
 ### Guidance
 

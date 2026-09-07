@@ -46,6 +46,12 @@ and bending are shown.
 **[The rest of the build files](https://gernreich.github.io/)** — every instrument,
 generator and tool, indexed.
 
+**[The operating guide](living-hinge-guide.html)** — every option, the library API, and
+what each pattern is for.
+
+**[Repository](https://github.com/Gernreich/living-hinge)** — the code, if you want to
+change a pattern or read how it works.
+
 **[Download everything as a ZIP](https://github.com/Gernreich/living-hinge/archive/refs/heads/main.zip)** — the CLI, the library, the guide, all eight examples and the coupons.
 
 ## Quick start
@@ -95,11 +101,11 @@ find out.
 |---|---|
 | `living-hinge.js` | the CLI — run it from this directory |
 | `living-hinge-generator.js` | the geometry library it calls; must sit beside the CLI |
-| `living-hinge-guide.md` · `.html` | operating guide; the markdown is the source |
+| [`living-hinge-guide.md`](living-hinge-guide.md) · [`.html`](living-hinge-guide.html) | operating guide; the markdown is the source |
 | `NOTES.md` | how to reach this generator from a later session |
 | `examples/` | one cut-ready file per pattern, all eight, at 50 × 200mm |
 | `coupons/` | bridge-sweep test coupons and cut instructions |
-| `index.html` | redirect that serves the guide on GitHub Pages |
+| `index.html` | this page, generated from `README.md`; GitHub Pages serves it |
 | `previews/` | display renderings of every pattern — **not** cut files |
 
 Released under [CC0 1.0](LICENSE).
