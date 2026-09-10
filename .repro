@@ -46,3 +46,12 @@ previews/living-hinge-honeycomb-50x200mm.svg :: !
 previews/living-hinge-straight-50x200mm.svg :: !
 previews/living-hinge-torsional-50x200mm.svg :: !
 previews/living-hinge-wave-50x200mm.svg :: !
+
+# --- the published pages ---
+# Claimed here since 2026-09-10, when .repro learned to walk *.html. See
+# ../knotwork-soundholes/.repro for why doc-audit checking them as well is not
+# a reason to leave them unclaimed. index.html is built from README.md here and
+# from index.md next door, which is the sort of difference a manifest states
+# and a naming convention only assumes.
+index.html :: python3 ../lasermade-tools/md2html.py README.md $OUT
+living-hinge-guide.html :: python3 ../lasermade-tools/md2html.py living-hinge-guide.md $OUT
