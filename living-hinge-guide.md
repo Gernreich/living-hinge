@@ -158,6 +158,30 @@ exhausting memory. You will only ever touch them for a genuinely enormous panel.
 
 ---
 
+## Every number here is a DRAWN number
+
+Nothing in this generator compensates for the kerf, and neither does anything in
+the trumpet's bell or mouthpiece; only the two bore generators do. For a hinge
+that matters more than for most parts, because the dimension carrying the load
+is the **bridge**, and a bridge sits between two slits which each open by half a
+kerf as the beam goes down them.
+
+On a laser measured at 0.13mm on 2026-09-09, the shipped sweep reads:
+
+    drawn 1.00  ->  0.87mm of ply actually left
+    drawn 1.25  ->  1.12mm
+    drawn 1.50  ->  1.37mm
+    drawn 1.75  ->  1.62mm
+    drawn 2.50  ->  2.37mm
+
+This does not invalidate the sweep. Its whole method is to cut the coupons,
+flex them and keep the one that survives, and that answer is right whatever the
+label says. **It matters when the number travels**: ask for `--bridge 1.5` in a
+later design expecting 1.5mm of ply and you get 1.37, and on a different laser
+you get something else again. Record the coupon that worked by its DRAWN value
+and the kerf you cut it at, and the pair transfers; the drawn value alone does
+not.
+
 ## 4. Suggested starting numbers
 
 **Unvalidated.** Treat as a first guess to bracket with a coupon test.
