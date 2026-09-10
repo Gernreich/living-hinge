@@ -158,6 +158,25 @@ exhausting memory. You will only ever touch them for a genuinely enormous panel.
 
 ---
 
+## flat-part-check does not fit a hinge, and that is not a fault
+
+Running `lasermade-tools/flat-part-check.py --dir living-hinge` gives 16 files,
+115 checks, 21 failed. Every one of those failures is the tool's model, not the
+files:
+
+- ***cut paths are closed*** counts all 279 paths in a panel as open, and they
+  are. A slit is a single cut LINE: it frees nothing and has no inside. The
+  check is for an outline that must meet itself, which a hinge has none of.
+- ***holes are inside the outline*** and ***hole is big enough*** assume one
+  part per sheet with holes in it. A coupon sheet carries several.
+- ***millimetre-true***, ***ink is in the palette*** and ***black frees the
+  part*** fail on `panel-convention.svg` alone, which is the documentation
+  diagram and not a cut file at all. `--dir` sweeps it up.
+
+What the tool IS worth running for here is ***fits the bed***, and for that pass
+`--min-edge 1.5`, since its 3mm default is for a bullroarer's cord hole under
+string tension and nothing here is.
+
 ## Every number here is a DRAWN number
 
 Nothing in this generator compensates for the kerf, and neither does anything in
