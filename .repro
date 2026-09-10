@@ -1,0 +1,48 @@
+# How every shipped SVG in this repository is drawn. Checked by
+# lasermade-tools/repro-svg.py; $OUT is where the file must be written.
+# living-hinge.js names its own output, so each command writes into $OUT's
+# directory and the tool compares the file it was asked for.
+
+# --- the eight pattern examples, 50 x 200mm ---
+examples/living-hinge-auxetic-50x200mm.svg :: ./living-hinge.js -w 50 -l 200 --pattern auxetic --outdir $(dirname $OUT)
+examples/living-hinge-chevron-50x200mm.svg :: ./living-hinge.js -w 50 -l 200 --pattern chevron --outdir $(dirname $OUT)
+examples/living-hinge-crosshatch-50x200mm.svg :: ./living-hinge.js -w 50 -l 200 --pattern crosshatch --outdir $(dirname $OUT)
+examples/living-hinge-dogbone-50x200mm.svg :: ./living-hinge.js -w 50 -l 200 --pattern dogbone --outdir $(dirname $OUT)
+examples/living-hinge-honeycomb-50x200mm.svg :: ./living-hinge.js -w 50 -l 200 --pattern honeycomb --outdir $(dirname $OUT)
+examples/living-hinge-straight-50x200mm.svg :: ./living-hinge.js -w 50 -l 200 --pattern straight --outdir $(dirname $OUT)
+examples/living-hinge-torsional-50x200mm.svg :: ./living-hinge.js -w 50 -l 200 --pattern torsional --outdir $(dirname $OUT)
+examples/living-hinge-wave-50x200mm.svg :: ./living-hinge.js -w 50 -l 200 --pattern wave --outdir $(dirname $OUT)
+
+# --- the bridge sweep coupons, exactly as coupons/README.md documents ---
+coupons/living-hinge-straight-40x120mm-bridge1.svg :: ./living-hinge.js -w 40 -l 120 --bridge 1.0 --outdir $(dirname $OUT)
+coupons/living-hinge-straight-40x120mm-bridge1.25.svg :: ./living-hinge.js -w 40 -l 120 --bridge 1.25 --outdir $(dirname $OUT)
+coupons/living-hinge-straight-40x120mm-bridge1.5.svg :: ./living-hinge.js -w 40 -l 120 --bridge 1.5 --outdir $(dirname $OUT)
+coupons/living-hinge-straight-40x120mm-bridge1.75.svg :: ./living-hinge.js -w 40 -l 120 --bridge 1.75 --outdir $(dirname $OUT)
+# --bridge 2.0 is the default, so this one takes the plain name
+coupons/living-hinge-straight-40x120mm.svg :: ./living-hinge.js -w 40 -l 120 --bridge 2.0 --outdir $(dirname $OUT)
+coupons/living-hinge-straight-40x120mm-bridge2.5.svg :: ./living-hinge.js -w 40 -l 120 --bridge 2.5 --outdir $(dirname $OUT)
+
+# --- panel-convention.svg: the figure explaining which edge is which ---
+panel-convention.svg :: node panel-convention.js $OUT
+
+# --- shipped without a generator ---
+# The nested sheet is a CUT file, which is the case this marker should almost
+# never cover. It was assembled by hand, and no tool here re-nests SVGs --
+# trumpet's nest.py takes a walk, not a set of files. What can be checked was:
+# the sheet holds 756 paths, exactly 6 x 126, and every path of all six coupons
+# is present in it by shape (2026-09-10). So it is the six coupons and nothing
+# else, and each of those six reproduces above. Re-nesting is the author's call.
+coupons/coupon-sheet-bridge-sweep-290x132mm.svg :: !
+# Display renderings, embedded in README.md. Geometry identical to what
+# make-preview.py draws today -- 279 paths, same data -- but the stroke is
+# 0.6mm where the tool now writes 0.4mm, so they predate a change to it.
+# Nothing cuts them; regenerating would restyle the pictures on the front page
+# of the repository, which is a look, not a defect.
+previews/living-hinge-auxetic-50x200mm.svg :: !
+previews/living-hinge-chevron-50x200mm.svg :: !
+previews/living-hinge-crosshatch-50x200mm.svg :: !
+previews/living-hinge-dogbone-50x200mm.svg :: !
+previews/living-hinge-honeycomb-50x200mm.svg :: !
+previews/living-hinge-straight-50x200mm.svg :: !
+previews/living-hinge-torsional-50x200mm.svg :: !
+previews/living-hinge-wave-50x200mm.svg :: !
