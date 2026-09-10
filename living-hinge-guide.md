@@ -160,8 +160,8 @@ exhausting memory. You will only ever touch them for a genuinely enormous panel.
 
 ## flat-part-check does not fit a hinge, and that is not a fault
 
-Running `lasermade-tools/flat-part-check.py --dir living-hinge` gives 16 files,
-115 checks, 21 failed. Every one of those failures is the tool's model, not the
+Running the flat gate in `lasermade-tools` over this folder gives 16 files,
+`115 checks`, 21 failed. Every one of those failures is the tool's model, not the
 files:
 
 - ***cut paths are closed*** counts all 279 paths in a panel as open, and they
