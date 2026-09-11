@@ -33,19 +33,22 @@ panel-convention.svg :: node panel-convention.js $OUT
 # is present in it by shape (2026-09-10). So it is the six coupons and nothing
 # else, and each of those six reproduces above. Re-nesting is the author's call.
 coupons/coupon-sheet-bridge-sweep-290x132mm.svg :: !
-# Display renderings, embedded in README.md. Geometry identical to what
-# make-preview.py draws today -- 279 paths, same data -- but the stroke is
-# 0.6mm where the tool now writes 0.4mm, so they predate a change to it.
-# Nothing cuts them; regenerating would restyle the pictures on the front page
-# of the repository, which is a look, not a defect.
-previews/living-hinge-auxetic-50x200mm.svg :: !
-previews/living-hinge-chevron-50x200mm.svg :: !
-previews/living-hinge-crosshatch-50x200mm.svg :: !
-previews/living-hinge-dogbone-50x200mm.svg :: !
-previews/living-hinge-honeycomb-50x200mm.svg :: !
-previews/living-hinge-straight-50x200mm.svg :: !
-previews/living-hinge-torsional-50x200mm.svg :: !
-previews/living-hinge-wave-50x200mm.svg :: !
+# Display renderings, embedded in README.md. Nothing cuts them.
+#
+# They carried a "!" until 2026-09-10, on the grounds that their 0.6mm stroke
+# predates a change to lasermade-tools/make-preview.py, which writes 0.4mm here
+# now -- so regenerating with that tool would have restyled the pictures on the
+# front page. True, and not a reason to leave eight shipped artefacts watched by
+# nothing. preview.js keeps the look this repository chose and reproduces all
+# eight BYTE-IDENTICAL, so the front page is untouched and the gap is closed.
+previews/living-hinge-auxetic-50x200mm.svg :: node preview.js examples/living-hinge-auxetic-50x200mm.svg $OUT
+previews/living-hinge-chevron-50x200mm.svg :: node preview.js examples/living-hinge-chevron-50x200mm.svg $OUT
+previews/living-hinge-crosshatch-50x200mm.svg :: node preview.js examples/living-hinge-crosshatch-50x200mm.svg $OUT
+previews/living-hinge-dogbone-50x200mm.svg :: node preview.js examples/living-hinge-dogbone-50x200mm.svg $OUT
+previews/living-hinge-honeycomb-50x200mm.svg :: node preview.js examples/living-hinge-honeycomb-50x200mm.svg $OUT
+previews/living-hinge-straight-50x200mm.svg :: node preview.js examples/living-hinge-straight-50x200mm.svg $OUT
+previews/living-hinge-torsional-50x200mm.svg :: node preview.js examples/living-hinge-torsional-50x200mm.svg $OUT
+previews/living-hinge-wave-50x200mm.svg :: node preview.js examples/living-hinge-wave-50x200mm.svg $OUT
 
 # --- the published pages ---
 # Claimed here since 2026-09-10, when .repro learned to walk *.html. See
