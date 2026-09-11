@@ -103,6 +103,7 @@ find out.
 | `living-hinge-generator.js` | the geometry library it calls; must sit beside the CLI |
 | [`living-hinge-guide.md`](living-hinge-guide.md) · [`.html`](living-hinge-guide.html) | operating guide; the markdown is the source |
 | `NOTES.md` | how to reach this generator from a later session |
+| `preview.js` | draws `previews/` from the cut files: the hairline thickened onto a gold panel |
 | `examples/` | one cut-ready file per pattern, all eight, at 50 × 200mm |
 | `coupons/` | bridge-sweep test coupons and cut instructions |
 | `index.html` | this page, generated from `README.md`; GitHub Pages serves it |
