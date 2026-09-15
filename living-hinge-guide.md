@@ -78,7 +78,7 @@ touching the disk. Use it constantly — it is instant and it is how you iterate
 
 ```bash
 ./living-hinge.js -p dogbone --bridge 2.5 --hole 0.4 --dry-run
-# dogbone  slit=10.5  bridge=2.5  hole=0.4  holeDia=0.8  ligament=1.7  pitch=3  rows=62 ...
+# dogbone  slit=10.625  bridge=2.5  hole=0.4  holeDia=0.8  ligament=1.7  pitch=3  rows=62 ...
 ```
 
 ### As a library

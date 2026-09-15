@@ -151,7 +151,7 @@ are 50 x 200mm.</desc>
 ./living-hinge.js --help                           # full option list</code></pre>
 <p>Add <code>--dry-run</code> to any command to see the stats and the filename it <em>would</em> write without touching the disk. Use it constantly — it is instant and it is how you iterate.</p>
 <pre><code>./living-hinge.js -p dogbone --bridge 2.5 --hole 0.4 --dry-run
-# dogbone  slit=10.5  bridge=2.5  hole=0.4  holeDia=0.8  ligament=1.7  pitch=3  rows=62 ...</code></pre>
+# dogbone  slit=10.625  bridge=2.5  hole=0.4  holeDia=0.8  ligament=1.7  pitch=3  rows=62 ...</code></pre>
 <h3 id="as-a-library">As a library</h3>
 <pre><code>var gen = require('./living-hinge-generator');
 var r = gen.generate({ pattern: 'wave', width: 80, height: 300, bridge: 1.5 });
