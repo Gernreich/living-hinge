@@ -36,6 +36,9 @@ h3{font-size:1.02rem;font-weight:650;margin:1.7em 0 .45em}
 p{margin:.85em 0}
 ul,ol{margin:.85em 0;padding-left:1.35em}
 li{margin:.3em 0}
+/* A list with blank lines between its items is "loose", and pandoc wraps each item
+   in a <p> as GitHub does. These pages were set tight before pandoc, so they stay so. */
+li>p{margin:0}
 hr{border:0;border-top:1px solid var(--line);margin:2.6em 0}
 figure{margin:1.6em 0}
 /* A paragraph holding two or more images is a gallery. Left to inline layout they
@@ -122,6 +125,7 @@ pre,.tw{break-inside:avoid}h1{break-after:avoid}}
 <td align="center"><sub>crosshatch</sub></td>
 </tr>
 </table>
+
 <p><em>All eight patterns at 50 × 200mm. Click one to download the cut file. The pictures are display renderings — <strong>gold is the panel that stays, cream the slits the laser removes</strong> — with the stroke thickened and painted onto the panel. A real cut file draws a hairline on nothing at all, which a browser shows almost invisibly against a transparency checkerboard.</em></p>
 <p>Built for <strong><a href="https://www.youtube.com/@LaserMadeMusic">LaserMadeMusic</a></strong>, where the cutting and bending are shown.</p>
 <p><strong><a href="https://gernreich.github.io/">The rest of the build files</a></strong> — every instrument, generator and tool, indexed.</p>
@@ -136,12 +140,96 @@ pre,.tw{break-inside:avoid}h1{break-after:avoid}}
 <p>Every pattern is committed cut-ready in <a href="examples"><code>examples/</code></a> at 50 × 200mm, so you can cut one without running anything. Those are the files the guide's per-pattern figures describe.</p>
 <p>Requires Node. No dependencies.</p>
 <h2 id="eight-patterns">Eight patterns</h2>
-<div class='tw'><table><thead><tr><th>Pattern</th><th>Defaults (mm)</th></tr></thead><tbody><tr><td><code>straight</code></td><td>pitch 3, bridge 2</td></tr><tr><td><code>dogbone</code></td><td>pitch 3, bridge 3, hole 0.5</td></tr><tr><td><code>wave</code></td><td>pitch 3, bridge 2, wavelength 13, amplitude 1, step 0.5</td></tr><tr><td><code>chevron</code></td><td>pitch 3, bridge 2, wavelength 13, amplitude 1</td></tr><tr><td><code>torsional</code></td><td>pitch 3.5, bridge 2, cap 1</td></tr><tr><td><code>honeycomb</code></td><td>side 5, gap 1.2</td></tr><tr><td><code>auxetic</code></td><td>cell 6.25, gap 1.5</td></tr><tr><td><code>crosshatch</code></td><td>cell 6.25, slit 4.5</td></tr></tbody></table></div>
+<div class="tw">
+<table>
+<thead>
+<tr>
+<th>Pattern</th>
+<th>Defaults (mm)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>straight</code></td>
+<td>pitch 3, bridge 2</td>
+</tr>
+<tr>
+<td><code>dogbone</code></td>
+<td>pitch 3, bridge 3, hole 0.5</td>
+</tr>
+<tr>
+<td><code>wave</code></td>
+<td>pitch 3, bridge 2, wavelength 13, amplitude 1, step 0.5</td>
+</tr>
+<tr>
+<td><code>chevron</code></td>
+<td>pitch 3, bridge 2, wavelength 13, amplitude 1</td>
+</tr>
+<tr>
+<td><code>torsional</code></td>
+<td>pitch 3.5, bridge 2, cap 1</td>
+</tr>
+<tr>
+<td><code>honeycomb</code></td>
+<td>side 5, gap 1.2</td>
+</tr>
+<tr>
+<td><code>auxetic</code></td>
+<td>cell 6.25, gap 1.5</td>
+</tr>
+<tr>
+<td><code>crosshatch</code></td>
+<td>cell 6.25, slit 4.5</td>
+</tr>
+</tbody>
+</table>
+</div>
 <h2 id="before-you-cut">Before you cut</h2>
 <p><strong>Slits must reach the panel edges</strong>, or the hinge does not flex. That constraint wins over your other numbers: <code>--side</code> and <code>--cell</code> are fitted to the panel width, so they are targets rather than guarantees, and the report tells you what they became.</p>
 <p><strong>The stock is 3mm Baltic birch plywood</strong>, and the defaults are aimed at it. <strong>The tuning numbers are still reasoned rather than tested</strong>, though: bridge width decides whether a hinge flexes or snaps, and the right value depends on your kerf as well as your stock. The <code>coupons/</code> directory holds a bridge sweep for exactly that purpose — six otherwise identical 40 × 120mm coupons varying only <code>--bridge</code>, so you can cut one sheet and find out.</p>
 <h2 id="files">Files</h2>
-<div class='tw'><table><thead><tr><th></th><th></th></tr></thead><tbody><tr><td><code>living-hinge.js</code></td><td>the CLI — run it from this directory</td></tr><tr><td><code>living-hinge-generator.js</code></td><td>the geometry library it calls; must sit beside the CLI</td></tr><tr><td><a href="living-hinge-guide.html"><code>living-hinge-guide.md</code></a> · <a href="living-hinge-guide.html"><code>.html</code></a></td><td>operating guide; the markdown is the source</td></tr><tr><td><code>NOTES.md</code></td><td>how to reach this generator from a later session</td></tr><tr><td><code>preview.js</code></td><td>draws <code>previews/</code> from the cut files: the hairline thickened onto a gold panel</td></tr><tr><td><code>examples/</code></td><td>one cut-ready file per pattern, all eight, at 50 × 200mm</td></tr><tr><td><code>coupons/</code></td><td>bridge-sweep test coupons and cut instructions</td></tr><tr><td><code>index.html</code></td><td>this page, generated from <code>README.md</code>; GitHub Pages serves it</td></tr><tr><td><code>previews/</code></td><td>display renderings of every pattern — <strong>not</strong> cut files</td></tr></tbody></table></div>
+<div class="tw">
+<table>
+<tbody>
+<tr>
+<td><code>living-hinge.js</code></td>
+<td>the CLI — run it from this directory</td>
+</tr>
+<tr>
+<td><code>living-hinge-generator.js</code></td>
+<td>the geometry library it calls; must sit beside the CLI</td>
+</tr>
+<tr>
+<td><a href="living-hinge-guide.html"><code>living-hinge-guide.md</code></a> · <a href="living-hinge-guide.html"><code>.html</code></a></td>
+<td>operating guide; the markdown is the source</td>
+</tr>
+<tr>
+<td><code>NOTES.md</code></td>
+<td>how to reach this generator from a later session</td>
+</tr>
+<tr>
+<td><code>preview.js</code></td>
+<td>draws <code>previews/</code> from the cut files: the hairline thickened onto a gold panel</td>
+</tr>
+<tr>
+<td><code>examples/</code></td>
+<td>one cut-ready file per pattern, all eight, at 50 × 200mm</td>
+</tr>
+<tr>
+<td><code>coupons/</code></td>
+<td>bridge-sweep test coupons and cut instructions</td>
+</tr>
+<tr>
+<td><code>index.html</code></td>
+<td>this page, generated from <code>README.md</code>; GitHub Pages serves it</td>
+</tr>
+<tr>
+<td><code>previews/</code></td>
+<td>display renderings of every pattern — <strong>not</strong> cut files</td>
+</tr>
+</tbody>
+</table>
+</div>
 <p>Released under <a href="LICENSE">CC0 1.0</a>.</p>
 </main>
 </div>
