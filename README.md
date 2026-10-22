@@ -1,5 +1,7 @@
 # Living Hinge Generator
 
+**[← All projects](https://gernreich.github.io/)**
+
 <!-- readme-only -->
 **[Read the writeup](https://gernreich.github.io/living-hinge/)**
 
@@ -45,7 +47,7 @@ checkerboard.*
 Built for **[LaserMadeMusic](https://www.youtube.com/@LaserMadeMusic)**, where the cutting
 and bending are shown.
 
-**[The rest of the build files](https://gernreich.github.io/)** — every instrument,
+**[The rest of the build files](https://gernreich.github.io/lasermademusic.html)** — every instrument,
 generator and tool, indexed.
 
 **[The operating guide](living-hinge-guide.html)** — every option, the library API, and
