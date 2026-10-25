@@ -6,7 +6,7 @@ slits. Everything else is held constant: pitch 3, margin 6, 3 segments, 36 rows,
 Generated with:
 
 ```bash
-cd ~/Documents/GIT/living-hinge
+cd ~/LaserMadeMusic/GIT/living-hinge
 for b in 1.0 1.25 1.5 1.75 2.0 2.5; do
   ./living-hinge.js -w 40 -l 120 --bridge $b --outdir ./coupons
 done

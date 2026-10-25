@@ -44,6 +44,12 @@ with the stroke thickened and painted onto the panel. A real cut file draws a ha
 nothing at all, which a browser shows almost invisibly against a transparency
 checkerboard.*
 
+Built for **[LaserMadeMusic](https://www.youtube.com/@LaserMadeMusic)**, so an instrument
+cut from flat sheet can have curved surfaces; the cutting and bending are shown there.
+
+**[The rest of the build files](https://gernreich.github.io/lasermademusic.html)** — every instrument,
+generator and tool, indexed.
+
 **[The operating guide](living-hinge-guide.html)** — every option, the library API, and
 what each pattern is for.
 
