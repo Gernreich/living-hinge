@@ -1,14 +1,16 @@
 # Living Hinge Generator — Operating Guide
 
 Parametric lattice-hinge ("living hinge") SVG generator for laser cutting.
-Two files, which must sit in the same directory:
+A small Rust crate:
 
 | File | Role |
 |---|---|
-| `living-hinge-generator.js` | Library. `require()` it, call `generate({...})` → `{svg, stats, options}` |
-| `living-hinge.js` | CLI front end (executable, `#!/usr/bin/env node`) |
+| `src/generator.rs` | Library. Call `generate(pattern, units, &opts)` → `{svg, stats, options}` |
+| `living-hinge.rs` | CLI front end, built as `target/release/living-hinge` |
 
-Requires Node ≥ 10.12. No dependencies, no install step.
+Requires Rust ([rustup](https://rustup.rs)); build once with `cargo build --release`. No
+dependencies beyond the standard library. (It was JavaScript until 2026-11-02; the Rust
+port writes the same files byte for byte.)
 
 > **The stock is 3mm Baltic birch plywood** — that is what these are cut in, and what the
 > defaults are aimed at. **The tuning numbers are still starting points, not tested
@@ -45,7 +47,7 @@ written out.
 
 ![The panel convention: x across the width, y along the length, a solid end tab of the margin height at each end, and between them the hinge field of staggered slit rows running out to both long edges](panel-convention.svg)
 
-*The slits are real generator output, not drawn by hand — see [`panel-convention.js`](panel-convention.js). Proportions are illustrative; the shipped examples are 50 × 200mm.*
+*The slits are real generator output, not drawn by hand — see [`panel-convention.rs`](panel-convention.rs). Proportions are illustrative; the shipped examples are 50 × 200mm.*
 
 
 - **`--width`** — the span the slits run across. The bend axis is parallel to this.
@@ -63,31 +65,33 @@ edge cuts are exempt from `--minSliver`.
 
 ```bash
 cd living-hinge          # wherever you cloned or unzipped it
+cargo build --release    # once
 
-./living-hinge.js                                  # 50 × 200mm straight, to ./
-./living-hinge.js -p wave -w 80 -l 300             # wave pattern, 80 × 300mm
-./living-hinge.js -p dogbone -w 2in -l 10in        # inch input, mm output
-./living-hinge.js -p chevron -w 3in --units in     # inch input AND inch output
-./living-hinge.js --all --outdir ./hinges          # all 8 patterns at one size
-./living-hinge.js --list                           # pattern names + their defaults
-./living-hinge.js --help                           # full option list
+target/release/living-hinge                                  # 50 × 200mm straight, to ./
+target/release/living-hinge -p wave -w 80 -l 300             # wave pattern, 80 × 300mm
+target/release/living-hinge -p dogbone -w 2in -l 10in        # inch input, mm output
+target/release/living-hinge -p chevron -w 3in --units in     # inch input AND inch output
+target/release/living-hinge --all --outdir ./hinges          # all 8 patterns at one size
+target/release/living-hinge --list                           # pattern names + their defaults
+target/release/living-hinge --help                           # full option list
 ```
 
 Add `--dry-run` to any command to see the stats and the filename it *would* write without
 touching the disk. Use it constantly — it is instant and it is how you iterate.
 
 ```bash
-./living-hinge.js -p dogbone --bridge 2.5 --hole 0.4 --dry-run
+target/release/living-hinge -p dogbone --bridge 2.5 --hole 0.4 --dry-run
 # dogbone  slit=10.625  bridge=2.5  hole=0.4  holeDia=0.8  ligament=1.7  pitch=3  rows=62 ...
 ```
 
 ### As a library
 
-```js
-var gen = require('./living-hinge-generator');
-var r = gen.generate({ pattern: 'wave', width: 80, height: 300, bridge: 1.5 });
+```rust
+use living_hinge::generator::{generate, Params};
+let opts = Params::from(&[("width", 80.0), ("height", 300.0), ("bridge", 1.5)]);
+let r = generate("wave", "mm", &opts)?;   // Err(message) if the options are unbuildable
 // r.svg     -> the SVG string
-// r.stats   -> { slit, bridge, wavelength, ..., pattern, cuts }
+// r.stats   -> [(slit), (bridge), (wavelength), ..., (pattern), (cuts)], in order
 // r.options -> every resolved option, after defaults and fitting
 ```
 
@@ -544,7 +548,7 @@ guessing in §4.
 cd living-hinge          # wherever you cloned or unzipped it
 mkdir -p coupons
 for b in 1.0 1.25 1.5 1.75 2.0 2.5; do
-  ./living-hinge.js -w 40 -l 120 --bridge $b --outdir ./coupons
+  target/release/living-hinge -w 40 -l 120 --bridge $b --outdir ./coupons
 done
 ```
 
@@ -657,7 +661,7 @@ Set `LIVING_HINGE_DEBUG=1` for a stack trace on unexpected errors.
 - Stats go to **stdout**, warnings and errors to **stderr**.
 
 ```bash
-./living-hinge.js --all --width 5 --outdir ./tiny || echo "some patterns failed"
+target/release/living-hinge --all --width 5 --outdir ./tiny || echo "some patterns failed"
 ```
 
 ---

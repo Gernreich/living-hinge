@@ -137,14 +137,15 @@ pre,.tw{break-inside:avoid}h1{break-after:avoid}}
 <p><strong><a href="https://gernreich.github.io/lasermademusic.html">The rest of the build files</a></strong> — every instrument, generator and tool, indexed.</p>
 <p><strong><a href="living-hinge-guide.html">The operating guide</a></strong> — every option, the library API, and what each pattern is for.</p>
 <p><strong><a href="https://github.com/Gernreich/living-hinge">Repository</a></strong> — the code, if you want to change a pattern or read how it works.</p>
-<p><strong><a href="https://github.com/Gernreich/living-hinge/archive/refs/heads/main.zip">Download everything as a ZIP</a></strong> — the CLI, the library, the guide, all eight examples and the coupons.</p>
+<p><strong><a href="https://github.com/Gernreich/living-hinge/archive/refs/heads/main.zip">Download everything as a ZIP</a></strong> — the source, the guide, all eight examples and the coupons.</p>
 <h2 id="quick-start">Quick start</h2>
-<pre><code>./living-hinge.js --list                          # patterns and their defaults
-./living-hinge.js -p wave -w 80 -l 300            # 80 × 300mm wave hinge
-./living-hinge.js -p chevron -w 80 -l 300 --margin 10   # with a 10mm margin
-./living-hinge.js --help                          # every option</code></pre>
+<pre><code>cargo build --release                             # once; puts the programs in target/release/
+target/release/living-hinge --list                          # patterns and their defaults
+target/release/living-hinge -p wave -w 80 -l 300            # 80 × 300mm wave hinge
+target/release/living-hinge -p chevron -w 80 -l 300 --margin 10   # with a 10mm margin
+target/release/living-hinge --help                          # every option</code></pre>
 <p>Every pattern is committed cut-ready in <a href="examples"><code>examples/</code></a> at 50 × 200mm, so you can cut one without running anything. Those are the files the guide's per-pattern figures describe.</p>
-<p>Requires Node. No dependencies.</p>
+<p>Requires Rust (<a href="https://rustup.rs">rustup</a>). No dependencies beyond the standard library. The tools were JavaScript until 2026-11-02; the Rust port redraws every shipped file byte for byte.</p>
 <h2 id="eight-patterns">Eight patterns</h2>
 <div class="tw">
 <table>
@@ -198,12 +199,20 @@ pre,.tw{break-inside:avoid}h1{break-after:avoid}}
 <table>
 <tbody>
 <tr>
-<td><code>living-hinge.js</code></td>
-<td>the CLI — run it from this directory</td>
+<td><code>living-hinge.rs</code></td>
+<td>the command-line program, built as <code>target/release/living-hinge</code></td>
 </tr>
 <tr>
-<td><code>living-hinge-generator.js</code></td>
-<td>the geometry library it calls; must sit beside the CLI</td>
+<td><code>src/generator.rs</code></td>
+<td>the geometry library it calls</td>
+</tr>
+<tr>
+<td><code>src/jsfmt.rs</code></td>
+<td>writes numbers exactly as JavaScript did, so the files stay byte-identical</td>
+</tr>
+<tr>
+<td><code>src/lib.rs</code> · <code>Cargo.toml</code> · <code>Cargo.lock</code></td>
+<td>the Rust crate around them</td>
 </tr>
 <tr>
 <td><a href="living-hinge-guide.html"><code>living-hinge-guide.md</code></a> · <a href="living-hinge-guide.html"><code>.html</code></a></td>
@@ -214,8 +223,12 @@ pre,.tw{break-inside:avoid}h1{break-after:avoid}}
 <td>how to reach this generator from a later session</td>
 </tr>
 <tr>
-<td><code>preview.js</code></td>
+<td><code>preview.rs</code></td>
 <td>draws <code>previews/</code> from the cut files: the hairline thickened onto a gold panel</td>
+</tr>
+<tr>
+<td><code>panel-convention.rs</code></td>
+<td>draws the guide's <a href="panel-convention.svg"><code>panel-convention.svg</code></a> from real generator output</td>
 </tr>
 <tr>
 <td><code>examples/</code></td>

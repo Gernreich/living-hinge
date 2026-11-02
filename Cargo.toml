@@ -1,0 +1,27 @@
+[package]
+name = "living-hinge"
+version = "0.1.0"
+edition = "2021"
+description = "Parametric lattice-hinge (living hinge) SVG generator for laser cutting"
+license-file = "LICENSE"
+publish = false
+autobins = false
+
+[lib]
+name = "living_hinge"
+path = "src/lib.rs"
+
+[[bin]]
+name = "living-hinge"
+path = "living-hinge.rs"
+
+[[bin]]
+name = "panel-convention"
+path = "panel-convention.rs"
+
+[[bin]]
+name = "preview"
+path = "preview.rs"
+
+[profile.release]
+overflow-checks = true

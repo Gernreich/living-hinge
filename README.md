@@ -56,22 +56,25 @@ what each pattern is for.
 **[Repository](https://github.com/Gernreich/living-hinge)** — the code, if you want to
 change a pattern or read how it works.
 
-**[Download everything as a ZIP](https://github.com/Gernreich/living-hinge/archive/refs/heads/main.zip)** — the CLI, the library, the guide, all eight examples and the coupons.
+**[Download everything as a ZIP](https://github.com/Gernreich/living-hinge/archive/refs/heads/main.zip)** — the source, the guide, all eight examples and the coupons.
 
 ## Quick start
 
 ```
-./living-hinge.js --list                          # patterns and their defaults
-./living-hinge.js -p wave -w 80 -l 300            # 80 × 300mm wave hinge
-./living-hinge.js -p chevron -w 80 -l 300 --margin 10   # with a 10mm margin
-./living-hinge.js --help                          # every option
+cargo build --release                             # once; puts the programs in target/release/
+target/release/living-hinge --list                          # patterns and their defaults
+target/release/living-hinge -p wave -w 80 -l 300            # 80 × 300mm wave hinge
+target/release/living-hinge -p chevron -w 80 -l 300 --margin 10   # with a 10mm margin
+target/release/living-hinge --help                          # every option
 ```
 
 Every pattern is committed cut-ready in [`examples/`](examples) at 50 × 200mm, so you can
 cut one without running anything. Those are the files the guide's per-pattern figures
 describe.
 
-Requires Node. No dependencies.
+Requires Rust ([rustup](https://rustup.rs)). No dependencies beyond the standard library.
+The tools were JavaScript until 2026-11-02; the Rust port redraws every shipped file
+byte for byte.
 
 ## Eight patterns
 
@@ -103,11 +106,14 @@ find out.
 
 | | |
 |---|---|
-| `living-hinge.js` | the CLI — run it from this directory |
-| `living-hinge-generator.js` | the geometry library it calls; must sit beside the CLI |
+| `living-hinge.rs` | the command-line program, built as `target/release/living-hinge` |
+| `src/generator.rs` | the geometry library it calls |
+| `src/jsfmt.rs` | writes numbers exactly as JavaScript did, so the files stay byte-identical |
+| `src/lib.rs` · `Cargo.toml` · `Cargo.lock` | the Rust crate around them |
 | [`living-hinge-guide.md`](living-hinge-guide.md) · [`.html`](living-hinge-guide.html) | operating guide; the markdown is the source |
 | `NOTES.md` | how to reach this generator from a later session |
-| `preview.js` | draws `previews/` from the cut files: the hairline thickened onto a gold panel |
+| `preview.rs` | draws `previews/` from the cut files: the hairline thickened onto a gold panel |
+| `panel-convention.rs` | draws the guide's [`panel-convention.svg`](panel-convention.svg) from real generator output |
 | `examples/` | one cut-ready file per pattern, all eight, at 50 × 200mm |
 | `coupons/` | bridge-sweep test coupons and cut instructions |
 | `index.html` | this page, generated from `README.md`; GitHub Pages serves it |

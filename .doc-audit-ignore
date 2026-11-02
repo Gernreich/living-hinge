@@ -2,13 +2,12 @@
 #
 # r.svg is a property, not a path. The guide documents the library's return value:
 #
-#     var r = gen.generate({ pattern: 'wave', ... });
+#     let r = generate("wave", "mm", &opts)?;
 #     // r.svg     -> the SVG string
 #
-# and living-hinge-generator.js really does `return { svg: svg, stats: stats,
-# options: o }`. The checker keeps filenames found inside fenced blocks on purpose,
-# because `node foo.js` in a shell block is a real reference to foo.js -- but that
-# same rule reads any `identifier.svg` in a JS block as a file. Renaming the variable
+# and src/generator.rs really does return `Generated { svg, stats, options, .. }`. The checker keeps filenames found inside fenced blocks on purpose,
+# because `python3 foo.py` in a shell block is a real reference to foo.py -- but that
+# same rule reads any `identifier.svg` in a code block as a file. Renaming the variable
 # would not help: out.svg and result.svg parse the same way.
 
 r.svg

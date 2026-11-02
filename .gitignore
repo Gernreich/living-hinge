@@ -8,3 +8,4 @@
 
 # Google Drive writes an "Icon\r" into every synced folder.
 Icon?
+/target/

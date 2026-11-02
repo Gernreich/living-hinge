@@ -8,7 +8,7 @@ Generated with:
 ```bash
 cd ~/LaserMadeMusic/GIT/living-hinge
 for b in 1.0 1.25 1.5 1.75 2.0 2.5; do
-  ./living-hinge.js -w 40 -l 120 --bridge $b --outdir ./coupons
+  target/release/living-hinge -w 40 -l 120 --bridge $b --outdir ./coupons
 done
 ```
 
@@ -76,7 +76,7 @@ widening the bridge).
 
 ## When you have numbers
 
-Report them and they'll be written into `DEFAULTS` in `living-hinge-generator.js` and into
+Report them and they'll be written into `defaults()` in `src/generator.rs` and into
 the project memory, so future work starts from measurements instead of estimates. Something
 like *"1.0 and 1.25 snapped on the first bend, 1.5 held 30 cycles, 3mm birch ply, slits
 across the grain"* is enough.

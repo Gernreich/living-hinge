@@ -102,7 +102,7 @@ pre,.tw{break-inside:avoid}h1{break-after:avoid}}
 <nav><b>Contents</b><a class="l1" href="#living-hinge-generator--operating-guide">Living Hinge Generator — Operating Guide</a><a class="l2" href="#get-the-files">Get the files</a><a class="l2" href="#1-what-it-actually-does">1. What it actually does</a><a class="l2" href="#2-quick-start">2. Quick start</a><a class="l2" href="#3-complete-option-reference">3. Complete option reference</a><a class="l2" href="#flat-part-check-does-not-fit-a-hinge-and-that-is-not-a-fault">flat-part-check does not fit a hinge, and that is not a fault</a><a class="l2" href="#every-number-here-is-a-drawn-number">Every number here is a DRAWN number</a><a class="l2" href="#4-suggested-starting-numbers">4. Suggested starting numbers</a><a class="l2" href="#5-the-eight-patterns">5. The eight patterns</a><a class="l2" href="#6---side-and---cell-are-targets-not-guarantees">6. --side and --cell are targets, not guarantees</a><a class="l2" href="#7-end-tabs--and-what-happens-when-you-minimise-them">7. End tabs — and what happens when you minimise them</a><a class="l2" href="#8-sizing-the-hinge-for-a-bend-radius">8. Sizing the hinge for a bend radius</a><a class="l2" href="#9-kerf">9. Kerf</a><a class="l2" href="#10-finding-your-real-numbers">10. Finding your real numbers</a><a class="l2" href="#11-output-format">11. Output format</a><a class="l2" href="#12-when-it-refuses">12. When it refuses</a><a class="l2" href="#13-scripting">13. Scripting</a><a class="l2" href="#14-gotchas">14. Gotchas</a><a class="l2" href="#15-known-limitations">15. Known limitations</a></nav>
 <main>
 <h1 id="living-hinge-generator--operating-guide">Living Hinge Generator — Operating Guide</h1>
-<p>Parametric lattice-hinge ("living hinge") SVG generator for laser cutting. Two files, which must sit in the same directory:</p>
+<p>Parametric lattice-hinge ("living hinge") SVG generator for laser cutting. A small Rust crate:</p>
 <div class="tw">
 <table>
 <thead>
@@ -113,17 +113,17 @@ pre,.tw{break-inside:avoid}h1{break-after:avoid}}
 </thead>
 <tbody>
 <tr>
-<td><code>living-hinge-generator.js</code></td>
-<td>Library. <code>require()</code> it, call <code>generate({...})</code> → <code>{svg, stats, options}</code></td>
+<td><code>src/generator.rs</code></td>
+<td>Library. Call <code>generate(pattern, units, &amp;opts)</code> → <code>{svg, stats, options}</code></td>
 </tr>
 <tr>
-<td><code>living-hinge.js</code></td>
-<td>CLI front end (executable, <code>#!/usr/bin/env node</code>)</td>
+<td><code>living-hinge.rs</code></td>
+<td>CLI front end, built as <code>target/release/living-hinge</code></td>
 </tr>
 </tbody>
 </table>
 </div>
-<p>Requires Node ≥ 10.12. No dependencies, no install step.</p>
+<p>Requires Rust (<a href="https://rustup.rs">rustup</a>); build once with <code>cargo build --release</code>. No dependencies beyond the standard library. (It was JavaScript until 2026-11-02; the Rust port writes the same files byte for byte.)</p>
 <blockquote>
 <p><strong>The stock is 3mm Baltic birch plywood</strong> — that is what these are cut in, and what the defaults are aimed at. <strong>The tuning numbers are still starting points, not tested values:</strong> they are derived from geometry rather than measured off cut material, and bridge width in particular decides whether a hinge flexes or snaps. Cut a coupon (see <a href="#10-finding-your-real-numbers">Finding your real numbers</a>) before committing a full panel.</p>
 </blockquote>
@@ -142,8 +142,8 @@ pre,.tw{break-inside:avoid}h1{break-after:avoid}}
 <figure><svg xmlns="http://www.w3.org/2000/svg" viewBox="-30 -26 140 146"
      width="1120" height="1168" role="img" aria-label="The panel convention: x runs across the width, y along the length. A solid end tab of the margin height sits at each end of the length, and between them the hinge field carries staggered rows of cutouts that run right out to both long edges.">
   <title>Panel convention — width, length, margin, and the hinge field</title>
-  <desc>Drawn by panel-convention.js. The slits are real output from
-living-hinge-generator.js for a 60 x 84mm straight panel with a 7mm margin, so the
+  <desc>Drawn by panel-convention.rs. The slits are real output from
+src/generator.rs for a 60 x 84mm straight panel with a 7mm margin, so the
 figure matches what the tool makes. Proportions are illustrative; the shipped examples
 are 50 x 200mm.</desc>
   <rect x="-30" y="-26" width="140" height="146" fill="#faf7f0"/>
@@ -172,7 +172,7 @@ are 50 x 200mm.</desc>
     <text x="30" y="111" font-size="2.9139999999999997" fill="#1a1c1e" text-anchor="middle">slits run ACROSS the width; the panel rolls ALONG the length</text>
   </g>
 </svg></figure>
-<p><em>The slits are real generator output, not drawn by hand — see <a href="panel-convention.js"><code>panel-convention.js</code></a>. Proportions are illustrative; the shipped examples are 50 × 200mm.</em></p>
+<p><em>The slits are real generator output, not drawn by hand — see <a href="panel-convention.rs"><code>panel-convention.rs</code></a>. Proportions are illustrative; the shipped examples are 50 × 200mm.</em></p>
 <ul>
 <li><strong><code>--width</code></strong> — the span the slits run across. The bend axis is parallel to this.</li>
 <li><strong><code>--length</code></strong> — the direction the panel rolls up. More length = more rows = gentler curve.</li>
@@ -182,22 +182,24 @@ are 50 x 200mm.</desc>
 <hr />
 <h2 id="2-quick-start">2. Quick start</h2>
 <pre class="bash"><code>cd living-hinge          # wherever you cloned or unzipped it
+cargo build --release    # once
 
-./living-hinge.js                                  # 50 × 200mm straight, to ./
-./living-hinge.js -p wave -w 80 -l 300             # wave pattern, 80 × 300mm
-./living-hinge.js -p dogbone -w 2in -l 10in        # inch input, mm output
-./living-hinge.js -p chevron -w 3in --units in     # inch input AND inch output
-./living-hinge.js --all --outdir ./hinges          # all 8 patterns at one size
-./living-hinge.js --list                           # pattern names + their defaults
-./living-hinge.js --help                           # full option list</code></pre>
+target/release/living-hinge                                  # 50 × 200mm straight, to ./
+target/release/living-hinge -p wave -w 80 -l 300             # wave pattern, 80 × 300mm
+target/release/living-hinge -p dogbone -w 2in -l 10in        # inch input, mm output
+target/release/living-hinge -p chevron -w 3in --units in     # inch input AND inch output
+target/release/living-hinge --all --outdir ./hinges          # all 8 patterns at one size
+target/release/living-hinge --list                           # pattern names + their defaults
+target/release/living-hinge --help                           # full option list</code></pre>
 <p>Add <code>--dry-run</code> to any command to see the stats and the filename it <em>would</em> write without touching the disk. Use it constantly — it is instant and it is how you iterate.</p>
-<pre class="bash"><code>./living-hinge.js -p dogbone --bridge 2.5 --hole 0.4 --dry-run
+<pre class="bash"><code>target/release/living-hinge -p dogbone --bridge 2.5 --hole 0.4 --dry-run
 # dogbone  slit=10.625  bridge=2.5  hole=0.4  holeDia=0.8  ligament=1.7  pitch=3  rows=62 ...</code></pre>
 <h3 id="as-a-library">As a library</h3>
-<pre class="js"><code>var gen = require(&#39;./living-hinge-generator&#39;);
-var r = gen.generate({ pattern: &#39;wave&#39;, width: 80, height: 300, bridge: 1.5 });
+<pre class="rust"><code>use living_hinge::generator::{generate, Params};
+let opts = Params::from(&amp;[(&quot;width&quot;, 80.0), (&quot;height&quot;, 300.0), (&quot;bridge&quot;, 1.5)]);
+let r = generate(&quot;wave&quot;, &quot;mm&quot;, &amp;opts)?;   // Err(message) if the options are unbuildable
 // r.svg     -&gt; the SVG string
-// r.stats   -&gt; { slit, bridge, wavelength, ..., pattern, cuts }
+// r.stats   -&gt; [(slit), (bridge), (wavelength), ..., (pattern), (cuts)], in order
 // r.options -&gt; every resolved option, after defaults and fitting</code></pre>
 <p>Note the library says <strong><code>height</code></strong>, the CLI says <strong><code>--length</code></strong>. Same thing.</p>
 <hr />
@@ -843,7 +845,7 @@ actual ligament  ≈  bridge − 2 × hole − kerf            (dogbone)</code><
 <pre class="bash"><code>cd living-hinge          # wherever you cloned or unzipped it
 mkdir -p coupons
 for b in 1.0 1.25 1.5 1.75 2.0 2.5; do
-  ./living-hinge.js -w 40 -l 120 --bridge $b --outdir ./coupons
+  target/release/living-hinge -w 40 -l 120 --bridge $b --outdir ./coupons
 done</code></pre>
 <p>Each lands in its own file, since differing tuning goes into the filename:</p>
 <pre><code>living-hinge-straight-40x120mm-bridge1.svg
@@ -965,7 +967,7 @@ living-hinge-straight-40x120mm-bridge2.5.svg</code></pre>
 <li>With <code>--all</code>, an unbuildable pattern is reported on stderr and skipped; the rest still generate and the exit status is <strong>1</strong>. Check it — a partial run looks like a success in the file listing.</li>
 <li>Stats go to <strong>stdout</strong>, warnings and errors to <strong>stderr</strong>.</li>
 </ul>
-<pre class="bash"><code>./living-hinge.js --all --width 5 --outdir ./tiny || echo &quot;some patterns failed&quot;</code></pre>
+<pre class="bash"><code>target/release/living-hinge --all --width 5 --outdir ./tiny || echo &quot;some patterns failed&quot;</code></pre>
 <hr />
 <h2 id="14-gotchas">14. Gotchas</h2>
 <ul>
