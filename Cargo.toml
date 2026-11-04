@@ -2,6 +2,7 @@
 name = "living-hinge"
 version = "0.1.0"
 edition = "2021"
+authors = ["Michael Gernreich", "Claude (Anthropic) <noreply@anthropic.com>"]
 description = "Parametric lattice-hinge (living hinge) SVG generator for laser cutting"
 license-file = "LICENSE"
 publish = false
