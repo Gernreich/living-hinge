@@ -38,7 +38,7 @@ and cuts at real size.
 </tr>
 </table>
 
-*All eight patterns at 50 × 200mm. Click one to download the cut file. The pictures are
+*All eight patterns at 50 × 200 mm. Click one to download the cut file. The pictures are
 display renderings — **gold is the panel that stays, cream the slits the laser removes** —
 with the stroke thickened and painted onto the panel. A real cut file draws a hairline on
 nothing at all, which a browser shows almost invisibly against a transparency
@@ -68,7 +68,7 @@ target/release/living-hinge -p chevron -w 80 -l 300 --margin 10   # with a 10mm 
 target/release/living-hinge --help                          # every option
 ```
 
-Every pattern is committed cut-ready in [`examples/`](examples) at 50 × 200mm, so you can
+Every pattern is committed cut-ready in [`examples/`](examples) at 50 × 200 mm, so you can
 cut one without running anything. Those are the files the guide's per-pattern figures
 describe.
 
@@ -95,11 +95,11 @@ byte for byte.
 over your other numbers: `--side` and `--cell` are fitted to the panel width, so they
 are targets rather than guarantees, and the report tells you what they became.
 
-**The stock is 3mm Baltic birch plywood**, and the defaults are aimed at it. **The tuning
+**The stock is 3 mm Baltic birch plywood**, and the defaults are aimed at it. **The tuning
 numbers are still reasoned rather than tested**, though: bridge width decides whether a
 hinge flexes or snaps, and the right value depends on your kerf as well as your stock. The
 `coupons/` directory holds a bridge sweep for exactly that purpose — six otherwise
-identical 40 × 120mm coupons varying only `--bridge`, so you can cut one sheet and
+identical 40 × 120 mm coupons varying only `--bridge`, so you can cut one sheet and
 find out.
 
 ## Files
@@ -114,7 +114,7 @@ find out.
 | `NOTES.md` | how to reach this generator from a later session |
 | `preview.rs` | draws `previews/` from the cut files: the hairline thickened onto a gold panel |
 | `panel-convention.rs` | draws the guide's [`panel-convention.svg`](panel-convention.svg) from real generator output |
-| `examples/` | one cut-ready file per pattern, all eight, at 50 × 200mm |
+| `examples/` | one cut-ready file per pattern, all eight, at 50 × 200 mm |
 | `coupons/` | bridge-sweep test coupons and cut instructions |
 | `index.html` | this page, generated from `README.md`; GitHub Pages serves it |
 | `previews/` | display renderings of every pattern — **not** cut files |
