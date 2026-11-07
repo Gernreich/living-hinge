@@ -187,7 +187,7 @@ fn main() {
     });
 
     // Geometry is not this tool's to change. Checked rather than trusted, the way
-    // make-preview.py checks the same thing next door.
+    // make-preview checks the same thing next door.
     if path_data(&text) != path_data(&svg) {
         eprintln!("  path data changed — refusing to write");
         std::process::exit(1);
